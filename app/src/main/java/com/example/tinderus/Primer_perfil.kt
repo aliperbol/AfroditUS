@@ -14,13 +14,17 @@ enum class ProviderType{
 class Primer_perfil:AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.primer_perfil);
+
+        setContentView(com.example.tinderus.R.layout.primer_perfil);
 
         val spinner= findViewById<Spinner>(R.id.seleccionPref)
 
-        val lista= listOf("HOMBRES", "MUJERES", "AMBOS")
+        val lista= resources.getStringArray(R.array.preferencias)
 
         val adaptador = ArrayAdapter(this, android.R.layout.simple_spinner_item, lista)
         spinner.adapter = adaptador
+
+
+
     }
 }
