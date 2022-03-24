@@ -20,7 +20,7 @@
         app:layout_constraintVertical_bias="0.129" />
 
     <EditText
-        android:id="@+id/NumTelefono"
+        android:id="@+id/telefonoRegistro"
         android:layout_width="230dp"
         android:layout_height="46dp"
         android:ems="10"
@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="9dp"
         android:text="Número de Teléfono"
-        app:layout_constraintBottom_toTopOf="@+id/NumTelefono"
+        app:layout_constraintBottom_toTopOf="@+id/telefonoRegistro"
         app:layout_constraintHorizontal_bias="0.318"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -52,7 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Email"
-        app:layout_constraintBottom_toTopOf="@+id/InputEmail"
+        app:layout_constraintBottom_toTopOf="@+id/emailRegistro"
         app:layout_constraintHorizontal_bias="0.242"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -60,7 +60,7 @@
         app:layout_constraintVertical_bias="0.976" />
 
     <EditText
-        android:id="@+id/InputEmail"
+        android:id="@+id/emailRegistro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -79,7 +79,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Contraseña"
-        app:layout_constraintBottom_toTopOf="@+id/InputContra1"
+        app:layout_constraintBottom_toTopOf="@+id/contraRegistro"
         app:layout_constraintHorizontal_bias="0.268"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -91,7 +91,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Repita la contraseña"
-        app:layout_constraintBottom_toTopOf="@+id/InputContra2"
+        app:layout_constraintBottom_toTopOf="@+id/repetirContraRegistro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.318"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -101,7 +101,7 @@
         app:layout_constraintVertical_bias="0.983" />
 
     <EditText
-        android:id="@+id/InputContra1"
+        android:id="@+id/contraRegistro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -116,7 +116,7 @@
         app:layout_constraintVertical_bias="0.932" />
 
     <EditText
-        android:id="@+id/InputContra2"
+        android:id="@+id/repetirContraRegistro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -131,7 +131,7 @@
         app:layout_constraintVertical_bias="0.752" />
 
     <Button
-        android:id="@+id/BotonEmpezar"
+        android:id="@+id/botonRegistro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="EMPECEMOS!"
