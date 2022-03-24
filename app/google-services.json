@@ -1,57 +1,42 @@
 {
   "project_info": {
-<<<<<<< HEAD
-    "project_number": "346480923018",
-    "project_id": "tinderus-4eb7e",
-    "storage_bucket": "tinderus-4eb7e.appspot.com"
-=======
+
     "project_number": "53568175679",
     "project_id": "afrofitus",
     "storage_bucket": "afrofitus.appspot.com"
->>>>>>> d7dc19017b564828955a76802116d9dab8e47e88
+
   },
   "client": [
     {
       "client_info": {
-<<<<<<< HEAD
-        "mobilesdk_app_id": "1:346480923018:android:67d818cb1301408d79f873",
-        "android_client_info": {
-          "package_name": "com.example.tinderus"
-=======
+
         "mobilesdk_app_id": "1:53568175679:android:1da1ce7dacab56cac2c28a",
         "android_client_info": {
           "package_name": "com.android.application"
->>>>>>> d7dc19017b564828955a76802116d9dab8e47e88
+
         }
       },
       "oauth_client": [
         {
-<<<<<<< HEAD
-          "client_id": "346480923018-kemg3kqdnrsa7hn0alvvqifkkbfnpe2s.apps.googleusercontent.com",
-=======
           "client_id": "53568175679-l3dmcfc0flbg8b20p32hggp4746javlo.apps.googleusercontent.com",
->>>>>>> d7dc19017b564828955a76802116d9dab8e47e88
+
           "client_type": 3
         }
       ],
       "api_key": [
         {
-<<<<<<< HEAD
-          "current_key": "AIzaSyB05vwIO-LRuUOT87K-JfeKkimG2j8VbA4"
-=======
+
           "current_key": "AIzaSyC7tkupYFn3SuTXGesfjoWmglO96qGUjRs"
->>>>>>> d7dc19017b564828955a76802116d9dab8e47e88
+
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-<<<<<<< HEAD
-              "client_id": "346480923018-kemg3kqdnrsa7hn0alvvqifkkbfnpe2s.apps.googleusercontent.com",
-=======
+
               "client_id": "53568175679-l3dmcfc0flbg8b20p32hggp4746javlo.apps.googleusercontent.com",
->>>>>>> d7dc19017b564828955a76802116d9dab8e47e88
+
               "client_type": 3
             }
           ]
