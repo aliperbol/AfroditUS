@@ -12,6 +12,8 @@
 
         <activity android:name=".IniciarSesion"></activity>
         <activity android:name=".Registro"></activity>
+        <activity android:name=".Primer_perfil"></activity>
+
         <activity
             android:name=".MainActivity"
             android:exported="true">

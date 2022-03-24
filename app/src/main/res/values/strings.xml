@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Tinderus</string>
+    <string-array name="preferencias">
+        <item>Hombres</item>
+        <item>Mujeres</item>
+        <item>Ambos</item>
+    </string-array>
 </resources>
