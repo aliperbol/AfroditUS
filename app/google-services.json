@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "346480923018",
+    "project_id": "tinderus-4eb7e",
+    "storage_bucket": "tinderus-4eb7e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:346480923018:android:67d818cb1301408d79f873",
+        "android_client_info": {
+          "package_name": "com.example.tinderus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "346480923018-kemg3kqdnrsa7hn0alvvqifkkbfnpe2s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB05vwIO-LRuUOT87K-JfeKkimG2j8VbA4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "346480923018-kemg3kqdnrsa7hn0alvvqifkkbfnpe2s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
