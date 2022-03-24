@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/intereses"
+        android:layout_width="412dp"
+        android:layout_height="66dp"
+        android:autoText="false"
+        android:background="#118177"
+        android:text="¿Cuáles son tus intereses?"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="#212121"
+        android:textIsSelectable="false"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+
+    <Button
+        android:id="@+id/siguiente"
+        android:layout_width="113dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        android:text="Siguiente"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <CheckBox
+        android:id="@+id/jardineria"
+        android:layout_width="105dp"
+        android:layout_height="52dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="87dp"
+        android:text="Jardinería"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/viajar" />
+
+    <CheckBox
+        android:id="@+id/leer"
+        android:layout_width="105dp"
+        android:layout_height="52dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:text="Leer"
+        app:layout_constraintBottom_toTopOf="@+id/foto"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <CheckBox
+        android:id="@+id/gym"
+        android:layout_width="105dp"
+        android:layout_height="52dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="32dp"
+        android:text="Ir al gimnasio"
+        app:layout_constraintBottom_toTopOf="@+id/anime"
+        app:layout_constraintEnd_toStartOf="@+id/sports" />
+
+    <CheckBox
+        android:id="@+id/sports"
+        android:layout_width="105dp"
+        android:layout_height="52dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="32dp"
+        android:text="Deportes"
+        app:layout_constraintBottom_toTopOf="@+id/dibujar"
+        app:layout_constraintEnd_toStartOf="@+id/artistmusic" />
+
+    <CheckBox
+        android:id="@+id/voluntariado"
+        android:layout_width="112dp"
+        android:layout_height="52dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="23dp"
+        android:text="Voluntariado"
+        app:layout_constraintBottom_toTopOf="@+id/siguiente"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <CheckBox
+        android:id="@+id/music"
+        android:layout_width="105dp"
+        android:layout_height="52dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="33dp"
+        android:text="Escuchar música"
+        app:layout_constraintBottom_toTopOf="@+id/sports"
+        app:layout_constraintEnd_toStartOf="@+id/pelis" />
+
+    <CheckBox
+        android:id="@+id/cocinar"
+        android:layout_width="105dp"
+        android:layout_height="52dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="29dp"
+        android:text="Cocinar"
+        app:layout_constraintBottom_toTopOf="@+id/voluntariado"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <CheckBox
+        android:id="@+id/foto"
+        android:layout_width="105dp"
+        android:layout_height="52dp"
+        android:layout_marginEnd="21dp"
+        android:layout_marginBottom="38dp"
+        android:text="Fotografía"
+        app:layout_constraintBottom_toTopOf="@+id/videojuegos"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <CheckBox
+        android:id="@+id/pelis"
+        android:layout_width="105dp"
+        android:layout_height="52dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="36dp"
+        android:text="Ver películas/series"
+        app:layout_constraintBottom_toTopOf="@+id/artistmusic"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <CheckBox
+        android:id="@+id/juegos"
+        android:layout_width="105dp"
+        android:layout_height="52dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="38dp"
+        android:text="Juegos de mesa"
+        app:layout_constraintBottom_toTopOf="@+id/costura"
+        app:layout_constraintEnd_toStartOf="@+id/foto" />
+
+    <CheckBox
+        android:id="@+id/logica"
+        android:layout_width="105dp"
+        android:layout_height="52dp"
+        android:layout_marginEnd="27dp"
+        android:layout_marginBottom="29dp"
+        android:text="Retos lógicos"
+        app:layout_constraintBottom_toTopOf="@+id/viajar"
+        app:layout_constraintEnd_toStartOf="@+id/cocinar" />
+
+    <CheckBox
+        android:id="@+id/maqueta"
+        android:layout_width="105dp"
+        android:layout_height="52dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="29dp"
+        android:text="Hacer maquetas"
+        app:layout_constraintBottom_toTopOf="@+id/jardineria"
+        app:layout_constraintEnd_toStartOf="@+id/logica" />
+
+    <CheckBox
+        android:id="@+id/anime"
+        android:layout_width="105dp"
+        android:layout_height="52dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="27dp"
+        android:text="Anime"
+        app:layout_constraintBottom_toTopOf="@+id/fiesta"
+        app:layout_constraintEnd_toStartOf="@+id/dibujar" />
+
+    <CheckBox
+        android:id="@+id/dibujar"
+        android:layout_width="105dp"
+        android:layout_height="52dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="27dp"
+        android:text="Dibujar"
+        app:layout_constraintBottom_toTopOf="@+id/juegos"
+        app:layout_constraintEnd_toStartOf="@+id/leer" />
+
+    <CheckBox
+        android:id="@+id/artistmusic"
+        android:layout_width="105dp"
+        android:layout_height="52dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="32dp"
+        android:text="Hacer música"
+        app:layout_constraintBottom_toTopOf="@+id/leer"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <CheckBox
+        android:id="@+id/modelaje"
+        android:layout_width="105dp"
+        android:layout_height="52dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="28dp"
+        android:text="Modelaje"
+        app:layout_constraintBottom_toTopOf="@+id/maqueta"
+        app:layout_constraintEnd_toStartOf="@+id/costura" />
+
+    <CheckBox
+        android:id="@+id/videojuegos"
+        android:layout_width="108dp"
+        android:layout_height="52dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="29dp"
+        android:text="Jugar videojuegos"
+        app:layout_constraintBottom_toTopOf="@+id/cocinar"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <CheckBox
+        android:id="@+id/viajar"
+        android:layout_width="105dp"
+        android:layout_height="52dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="87dp"
+        android:text="Viajar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/voluntariado" />
+
+    <CheckBox
+        android:id="@+id/cultural"
+        android:layout_width="105dp"
+        android:layout_height="52dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="33dp"
+        android:text="Ir a eventos culturales"
+        app:layout_constraintBottom_toTopOf="@+id/gym"
+        app:layout_constraintEnd_toStartOf="@+id/music" />
+
+    <CheckBox
+        android:id="@+id/costura"
+        android:layout_width="105dp"
+        android:layout_height="52dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="28dp"
+        android:text="Costura"
+        app:layout_constraintBottom_toTopOf="@+id/logica"
+        app:layout_constraintEnd_toStartOf="@+id/videojuegos" />
+
+    <CheckBox
+        android:id="@+id/fiesta"
+        android:layout_width="105dp"
+        android:layout_height="52dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="38dp"
+        android:text="Ir de fiesta"
+        app:layout_constraintBottom_toTopOf="@+id/modelaje"
+        app:layout_constraintEnd_toStartOf="@+id/juegos" />
+
+    <TextView
+        android:id="@+id/min"
+        android:layout_width="407dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="32dp"
+        android:text="Señale mínimo 3 opciones"
+        android:textAlignment="center"
+        android:textColor="#F9FBE7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
