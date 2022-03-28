@@ -15,16 +15,11 @@ private lateinit var auth: FirebaseAuth
 
 class Registro : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
-        auth = Firebase.auth
+
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.registro)
 
-        val buttonClick = findViewById<Button>(R.id.botonRegistro)
-        buttonClick.setOnClickListener {
-            val intent = Intent(this, Primer_perfil::class.java)
-            startActivity(intent)
-        }
 
         setup()
     }
@@ -38,6 +33,7 @@ class Registro : AppCompatActivity(){
                 ).addOnCompleteListener{
 
                     if (it.isSuccessful){
+                        println("registro esho")
                         perfil(it.result?.user?.email ?:"", ProviderType.BASIC)
                     }else{
                         showAlert()

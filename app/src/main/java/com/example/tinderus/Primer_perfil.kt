@@ -24,6 +24,11 @@ class Primer_perfil:AppCompatActivity() {
         val adaptador = ArrayAdapter(this, android.R.layout.simple_spinner_item, lista)
         spinner.adapter = adaptador
 
+        val buttonClick = findViewById<Button>(R.id.botonHaciaIntereses)
+        buttonClick.setOnClickListener {
+            val intent = Intent(this, Intereses::class.java)
+            startActivity(intent)
+        }
 
 
     }
