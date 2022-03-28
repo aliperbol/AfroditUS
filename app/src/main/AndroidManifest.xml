@@ -15,7 +15,7 @@
         <activity android:name=".Registro" />
         <activity android:name=".Primer_perfil" />
         <activity android:name=".Intereses" />
-        <activity android:name=".`Menu_principal.kt`" />
+        <activity android:name=".MenuPrincipal" />
 
         <activity
             android:name=".MainActivity"
