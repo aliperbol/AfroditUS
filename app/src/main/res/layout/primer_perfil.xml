@@ -77,19 +77,21 @@
         android:calendarTextColor="#ff4081"
         android:calendarViewShown="false"
         android:datePickerMode="spinner"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="452dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
         android:text="¿Cuándo es tu cumpleaños?"
         android:textColor="#000000"
         android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@+id/seleccionPref"
-        tools:layout_editor_absoluteX="77dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.383"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seleccionPref" />
 
     <Button
         android:id="@+id/botonHaciaIntereses"
@@ -97,7 +99,8 @@
         android:layout_height="wrap_content"
         android:text="Continuar"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ageSelectionPicker"
-        app:layout_constraintVertical_bias="0.0"
-        tools:layout_editor_absoluteX="144dp" />
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
