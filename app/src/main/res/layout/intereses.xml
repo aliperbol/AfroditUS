@@ -18,14 +18,16 @@
         android:textIsSelectable="false"
         android:textSize="24sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />
 
     <Button
         android:id="@+id/siguiente"
-        android:layout_width="113dp"
-        android:layout_height="48dp"
+        android:layout_width="136dp"
+        android:layout_height="41dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
         android:text="Siguiente"
@@ -37,10 +39,12 @@
         android:layout_width="105dp"
         android:layout_height="52dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="87dp"
+        android:layout_marginBottom="84dp"
         android:text="Jardinería"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/viajar" />
+        app:layout_constraintEnd_toStartOf="@+id/viajar"
+        app:layout_constraintHorizontal_bias="0.892"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <CheckBox
         android:id="@+id/leer"
@@ -60,7 +64,9 @@
         android:layout_marginBottom="32dp"
         android:text="Ir al gimnasio"
         app:layout_constraintBottom_toTopOf="@+id/anime"
-        app:layout_constraintEnd_toStartOf="@+id/sports" />
+        app:layout_constraintEnd_toStartOf="@+id/sports"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <CheckBox
         android:id="@+id/sports"
@@ -86,11 +92,13 @@
         android:id="@+id/music"
         android:layout_width="105dp"
         android:layout_height="52dp"
-        android:layout_marginEnd="22dp"
+        android:layout_marginEnd="24dp"
         android:layout_marginBottom="33dp"
         android:text="Escuchar música"
         app:layout_constraintBottom_toTopOf="@+id/sports"
-        app:layout_constraintEnd_toStartOf="@+id/pelis" />
+        app:layout_constraintEnd_toStartOf="@+id/pelis"
+        app:layout_constraintTop_toBottomOf="@+id/intereses"
+        app:layout_constraintVertical_bias="1.0" />
 
     <CheckBox
         android:id="@+id/cocinar"
@@ -120,7 +128,9 @@
         android:layout_marginBottom="36dp"
         android:text="Ver películas/series"
         app:layout_constraintBottom_toTopOf="@+id/artistmusic"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/intereses"
+        app:layout_constraintVertical_bias="0.812" />
 
     <CheckBox
         android:id="@+id/juegos"
@@ -147,20 +157,24 @@
         android:layout_width="105dp"
         android:layout_height="52dp"
         android:layout_marginEnd="26dp"
-        android:layout_marginBottom="29dp"
+        android:layout_marginBottom="32dp"
         android:text="Hacer maquetas"
         app:layout_constraintBottom_toTopOf="@+id/jardineria"
-        app:layout_constraintEnd_toStartOf="@+id/logica" />
+        app:layout_constraintEnd_toStartOf="@+id/logica"
+        app:layout_constraintHorizontal_bias="0.925"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <CheckBox
         android:id="@+id/anime"
         android:layout_width="105dp"
         android:layout_height="52dp"
         android:layout_marginEnd="25dp"
-        android:layout_marginBottom="27dp"
+        android:layout_marginBottom="28dp"
         android:text="Anime"
         app:layout_constraintBottom_toTopOf="@+id/fiesta"
-        app:layout_constraintEnd_toStartOf="@+id/dibujar" />
+        app:layout_constraintEnd_toStartOf="@+id/dibujar"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <CheckBox
         android:id="@+id/dibujar"
@@ -187,10 +201,12 @@
         android:layout_width="105dp"
         android:layout_height="52dp"
         android:layout_marginEnd="25dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="32dp"
         android:text="Modelaje"
         app:layout_constraintBottom_toTopOf="@+id/maqueta"
-        app:layout_constraintEnd_toStartOf="@+id/costura" />
+        app:layout_constraintEnd_toStartOf="@+id/costura"
+        app:layout_constraintHorizontal_bias="0.961"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <CheckBox
         android:id="@+id/videojuegos"
@@ -206,8 +222,8 @@
         android:id="@+id/viajar"
         android:layout_width="105dp"
         android:layout_height="52dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="87dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="84dp"
         android:text="Viajar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/voluntariado" />
@@ -216,11 +232,15 @@
         android:id="@+id/cultural"
         android:layout_width="105dp"
         android:layout_height="52dp"
-        android:layout_marginEnd="25dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginBottom="33dp"
         android:text="Ir a eventos culturales"
         app:layout_constraintBottom_toTopOf="@+id/gym"
-        app:layout_constraintEnd_toStartOf="@+id/music" />
+        app:layout_constraintEnd_toStartOf="@+id/music"
+        app:layout_constraintHorizontal_bias="0.892"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/intereses"
+        app:layout_constraintVertical_bias="1.0" />
 
     <CheckBox
         android:id="@+id/costura"
@@ -237,20 +257,22 @@
         android:layout_width="105dp"
         android:layout_height="52dp"
         android:layout_marginEnd="25dp"
-        android:layout_marginBottom="38dp"
+        android:layout_marginBottom="36dp"
         android:text="Ir de fiesta"
         app:layout_constraintBottom_toTopOf="@+id/modelaje"
-        app:layout_constraintEnd_toStartOf="@+id/juegos" />
+        app:layout_constraintEnd_toStartOf="@+id/juegos"
+        app:layout_constraintHorizontal_bias="0.892"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/min"
         android:layout_width="407dp"
         android:layout_height="22dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginBottom="22dp"
         android:text="Señale mínimo 3 opciones"
         android:textAlignment="center"
         android:textColor="#F9FBE7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/cultural"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
