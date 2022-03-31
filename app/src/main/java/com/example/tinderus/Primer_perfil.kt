@@ -11,6 +11,8 @@ import android.widget.TextView
 
 
 class Primer_perfil:AppCompatActivity() {
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -21,9 +23,9 @@ class Primer_perfil:AppCompatActivity() {
 
         findViewById<TextView>(R.id.nombreUsuario).text = username
 
-        val spinner= findViewById<Spinner>(R.id.seleccionPref)
+        val spinner = findViewById<Spinner>(R.id.seleccionPref)
 
-        val lista= resources.getStringArray(R.array.preferencias)
+        val lista = resources.getStringArray(R.array.preferencias)
 
         val adaptador = ArrayAdapter(this, android.R.layout.simple_spinner_item, lista)
         spinner.adapter = adaptador
