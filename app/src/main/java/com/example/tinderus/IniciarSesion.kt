@@ -37,7 +37,7 @@ class IniciarSesion : AppCompatActivity(){
 
                     if (it.isSuccessful){
                         Log.i("STATE","esta weno")
-                        perfil(it.result?.user?.email ?:"", ProviderType.BASIC)
+                        perfil(it.result?.user?.email ?:"")
                     }else{
                         Log.i("STATE","no esta weno")
                         showAlert("Se ha producido un error autenticando al usuario")
@@ -57,11 +57,10 @@ class IniciarSesion : AppCompatActivity(){
         val dialog: AlertDialog = builder.create()
         dialog.show()
     }
-    private fun perfil(email: String, provider: ProviderType) {
+    private fun perfil(email: String) {
         Log.d("STATE","entro aqui")
         val intent = Intent(this, MenuPrincipal::class.java).apply {
             putExtra("email", email)
-            putExtra("provider", provider.name)
 
         }
         startActivity(intent)

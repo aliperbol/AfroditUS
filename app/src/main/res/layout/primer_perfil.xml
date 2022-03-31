@@ -18,30 +18,16 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <EditText
-        android:id="@+id/IdNombre"
-        android:layout_width="255dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="24dp"
-        android:ems="10"
-        android:hint="¿Cómo te llamas?"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
-
-    <EditText
         android:id="@+id/IdDescripcion"
         android:layout_width="255dp"
         android:layout_height="49dp"
-        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Descríbete un poco!"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/IdNombre" />
+        tools:layout_editor_absoluteY="275dp" />
 
     <Spinner
         android:id="@+id/seleccionPref"
@@ -103,5 +89,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ageSelectionPicker"
         app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/nombreUsuario"
+        android:layout_width="260dp"
+        android:layout_height="42dp"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/IdDescripcion"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        tools:layout_editor_absoluteX="75dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

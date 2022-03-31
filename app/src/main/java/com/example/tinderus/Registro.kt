@@ -26,7 +26,8 @@ class Registro : AppCompatActivity(){
     private fun setup(){
         title = "Autenticación"
         findViewById<Button>(R.id.botonRegistro).setOnClickListener {
-            if(findViewById<EditText>(R.id.emailRegistro).text.isNotEmpty() && findViewById<EditText>(R.id.contraRegistro).text.isNotEmpty()){
+
+            if(findViewById<EditText>(R.id.emailRegistro).text.isNotEmpty() && findViewById<EditText>(R.id.contraRegistro).text.isNotEmpty() && findViewById<EditText>(R.id.contraRegistro).text.toString()== findViewById<EditText>(R.id.repetirContraRegistro).text.toString() && findViewById<EditText>(R.id.nombreRegistro).text.isNotEmpty()){
 
                 Firebase.auth.createUserWithEmailAndPassword(findViewById<EditText>(R.id.emailRegistro).text.toString(),
                     findViewById<EditText>(R.id.contraRegistro).text.toString()
@@ -34,27 +35,30 @@ class Registro : AppCompatActivity(){
 
                     if (it.isSuccessful){
                         println("registro esho")
-                        perfil(it.result?.user?.email ?:"", ProviderType.BASIC)
+                        perfil(it.result?.user?.email ?:"", findViewById<EditText>(R.id.nombreRegistro).text.toString())
                     }else{
-                        showAlert()
+                        showAlert("Se ha producido un error autenticando al usuario")
                     }
                 }
+            }
+            else{
+                showAlert("Por favor rellene todos los campos o ponga bien la contraseña")
             }
         }
     }
 
-    private fun showAlert(){
+    private fun showAlert(mensaje: String){
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Error")
-        builder.setMessage("Se ha producido un error autenticando al usuario")
+        builder.setMessage(mensaje)
         builder.setPositiveButton("Aceptar", null)
         val dialog: AlertDialog = builder.create()
         dialog.show()
     }
-    private fun perfil(email: String, provider: ProviderType) {
+    private fun perfil(email: String, username: String) {
         val intent = Intent(this, Primer_perfil::class.java).apply {
             putExtra("email", email)
-            putExtra("provider", provider.name)
+            putExtra("username", username)
 
         }
         startActivity(intent)

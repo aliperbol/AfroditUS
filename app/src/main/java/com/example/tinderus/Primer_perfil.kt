@@ -7,15 +7,19 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
+import android.widget.TextView
 
-enum class ProviderType{
-    BASIC
-}
+
 class Primer_perfil:AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(com.example.tinderus.R.layout.primer_perfil);
+        setContentView(R.layout.primer_perfil);
+
+        val bundle = intent.extras
+        val username = bundle?.getString("username")
+
+        findViewById<TextView>(R.id.nombreUsuario).text = username
 
         val spinner= findViewById<Spinner>(R.id.seleccionPref)
 
