@@ -27,27 +27,32 @@ class IniciarSesion : AppCompatActivity(){
         title = "Autenticación"
         findViewById<Button>(R.id.botonInicioSesion).setOnClickListener {
             Log.i("STATE","hola")
-            if(findViewById<EditText>(R.id.emailInicio).text.isNotEmpty() && findViewById<EditText>(R.id.contraInicio).text.isNotEmpty()){
 
-                Firebase.auth.signInWithEmailAndPassword(findViewById<EditText>(R.id.emailRegistro).text.toString(),
-                    findViewById<EditText>(R.id.contraRegistro).text.toString()
-                ).addOnCompleteListener{
+            if(findViewById<EditText>(R.id.emailInicio).text.isNotEmpty() && findViewById<EditText>(R.id.contraInicio).text.isNotEmpty()){
+                val email: String = findViewById<EditText>(R.id.emailInicio).text.toString().trim()
+                val contra: String = findViewById<EditText>(R.id.contraInicio).text.toString().trim()
+
+                Firebase.auth.signInWithEmailAndPassword(email, contra)
+                    .addOnCompleteListener{
 
                     if (it.isSuccessful){
                         Log.i("STATE","esta weno")
                         perfil(it.result?.user?.email ?:"", ProviderType.BASIC)
                     }else{
                         Log.i("STATE","no esta weno")
-                        showAlert()
+                        showAlert("Se ha producido un error autenticando al usuario")
                     }
                 }
             }
+            else{
+                showAlert("Por favor rellene todos los campos")
+            }
         }
     }
-    private fun showAlert(){
+    private fun showAlert(mensaje: String){
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Error")
-        builder.setMessage("Se ha producido un error autenticando al usuario")
+        builder.setMessage(mensaje)
         builder.setPositiveButton("Aceptar", null)
         val dialog: AlertDialog = builder.create()
         dialog.show()
