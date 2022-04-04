@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Users/USUARIO/Desktop/MariconeUS/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2595" />
         <entry key="..\:/Users/USUARIO/Desktop/MariconeUS/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2595" />
+        <entry key="..\:/Users/USUARIO/Desktop/MariconeUS/app/src/main/res/drawable/select_foto.xml" value="0.1765" />
         <entry key="..\:/Users/USUARIO/Desktop/MariconeUS/app/src/main/res/layout-w1240dp/activity_login.xml" value="0.136" />
         <entry key="..\:/Users/USUARIO/Desktop/MariconeUS/app/src/main/res/layout-w936dp/activity_login.xml" value="0.136" />
         <entry key="..\:/Users/USUARIO/Desktop/MariconeUS/app/src/main/res/layout/activity_login.xml" value="0.264" />
@@ -14,8 +15,9 @@
         <entry key="..\:/Users/USUARIO/Desktop/MariconeUS/app/src/main/res/layout/menu_principal.xml" value="0.2" />
         <entry key="..\:/Users/USUARIO/Desktop/MariconeUS/app/src/main/res/layout/primer_perfil.xml" value="0.264" />
         <entry key="..\:/Users/USUARIO/Desktop/MariconeUS/app/src/main/res/layout/registro.xml" value="0.264" />
-        <entry key="..\:/Users/almug/Desktop/CM/MariconeUS/app/src/main/res/layout/intereses.xml" value="0.2" />
-        <entry key="..\:/Users/almug/Desktop/CM/MariconeUS/app/src/main/res/layout/primer_perfil.xml" value="0.2" />
+        <entry key="..\:/Users/USUARIO/Desktop/MariconeUS/app/src/main/res/layout/select_foto.xml" value="0.11246200607902736" />
+        <entry key="..\:/Users/USUARIO/Desktop/Universidad/MariconeUS/app/src/main/res/drawable/select_foto.xml" value="0.14" />
+        <entry key="..\:/Users/USUARIO/Desktop/Universidad/MariconeUS/app/src/main/res/layout/primer_perfil.xml" value="0.23177083333333334" />
       </map>
     </option>
   </component>
