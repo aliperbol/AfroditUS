@@ -2,11 +2,13 @@ package com.example.tinderus
 
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
-
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.CheckBox
+import android.widget.CompoundButton
+import androidx.appcompat.app.AppCompatActivity
+
 
 class Intereses : AppCompatActivity(){
     lateinit var cultural: CheckBox
@@ -54,22 +56,60 @@ class Intereses : AppCompatActivity(){
         viajar = findViewById(R.id.viajar)
         voluntariado = findViewById(R.id.voluntariado)
         val buttonClick = findViewById<Button>(R.id.siguiente)
-       /** if((cultural || music || gym || artistmusic || anime || dibujar || leer || fiesta || juegos || modelaje ||costura || foto || videojuegos ||
-                    maqueta ||logica || cocinar || jardineria || viajar || voluntariado).isChecked){
 
-        }
-        if(anime.isChecked){
+       /**if(anime.isChecked){
+
+           anime.setChecked(true)
+
+           contador += 1
+           println("+1")
+
+        }else if (cultural.isChecked == true){
+            contador= contador + 1
+        }else if (music.isChecked == true){
+            contador= contador + 1
+            println("+1")
+        }else if (gym.isChecked == true){
             contador+=1
-        }
-        else if (anime.isChecked == false){
-            contador+=-1
-        }
+        }else if (artistmusic.isChecked == true){
+            contador+=1
+        }else if (dibujar.isChecked == true){
+            contador+=1
+        }else if (leer.isChecked == true){
+            contador+=1
+        }else if (fiesta.isChecked == true){
+            contador+=1
+        }else if (juegos.isChecked == true){
+            contador+=1
+        }else if (modelaje.isChecked == true){
+            contador+=1
+        }else if (costura.isChecked == true){
+            contador+=1
+        }else if (foto.isChecked == true){
+            contador+=1
+        }else if (videojuegos.isChecked == true){
+            contador+=1
+        }else if (maqueta.isChecked == true){
+            contador+=1
+        }else if (videojuegos.isChecked == true){
+            contador+=1
+        }else if (logica.isChecked == true){
+            contador+=1
+        }else if (cocinar.isChecked == true){
+            contador+=1
+        }else if (jardineria.isChecked == true){
+            contador+=1
+        }else if (voluntariado.isChecked == true){
+            contador+=1
+        }else {
+            contador-=1
 
-        buttonClick.isEnabled = false
-
-        if(contador >=3 ){
-            buttonClick.isEnabled = true
         }**/
+
+        buttonClick.isEnabled = true
+
+
+
         buttonClick.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
