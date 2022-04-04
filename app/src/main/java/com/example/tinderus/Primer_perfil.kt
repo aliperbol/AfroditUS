@@ -1,9 +1,13 @@
 package com.example.tinderus
 
+import android.app.Activity
 import android.content.Intent
+import android.graphics.drawable.BitmapDrawable
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 
 import android.os.Bundle
+import android.provider.MediaStore
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
@@ -36,6 +40,27 @@ class Primer_perfil:AppCompatActivity() {
             startActivity(intent)
         }
 
+        findViewById<Button>(R.id.selectImage).setOnClickListener{
+            val intent = Intent(Intent.ACTION_PICK)
+            intent.type = "image/*"
+            startActivityForResult(intent, 0)
+        }
 
     }
+
+    var fotoSeleccionadaURL: Uri? = null
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if(requestCode == 0 && resultCode == Activity.RESULT_OK && data != null){
+            fotoSeleccionadaURL= data.data
+            val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, fotoSeleccionadaURL)
+            val bitmapDrawable = BitmapDrawable(bitmap)
+
+            findViewById<Button>(R.id.selectImage).setBackgroundDrawable(bitmapDrawable)
+        }
+
+
+    }
+
 }
