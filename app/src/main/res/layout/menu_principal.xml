@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <!-- top navigation -->
+    <include layout="@layout/barra_menu" />
 
     <TextView
         android:id="@+id/textView3"

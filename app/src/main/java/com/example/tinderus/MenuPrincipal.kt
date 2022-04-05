@@ -16,7 +16,7 @@ class MenuPrincipal : AppCompatActivity() {
         val bundle = intent.extras
         val email = bundle?.getString("email")
         val provider = bundle?.getString("provider")
-        setContentView(R.layout.barra_menu)
+
 
         setup(email ?: "", provider ?: "")
     }
