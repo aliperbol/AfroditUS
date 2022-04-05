@@ -59,7 +59,7 @@ class IniciarSesion : AppCompatActivity(){
     }
     private fun perfil(email: String) {
         Log.d("STATE","entro aqui")
-        val intent = Intent(this, MenuPrincipal::class.java).apply {
+        val intent = Intent(this, ListaChats::class.java).apply {
             putExtra("email", email)
 
         }
