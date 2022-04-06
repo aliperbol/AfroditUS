@@ -16,6 +16,7 @@
         <activity android:name=".Primer_perfil" />
         <activity android:name=".Intereses" />
         <activity android:name=".MenuPrincipal" />
+        <activity android:name=".ListaChats" />
 
         <activity
             android:name=".MainActivity"

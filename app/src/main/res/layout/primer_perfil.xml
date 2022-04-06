@@ -5,67 +5,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="¿Cúal es tu género?"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/seleccionPref"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.278"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/IdDescripcion"
-        app:layout_constraintVertical_bias="0.239" />
-
     <EditText
         android:id="@+id/IdDescripcion"
         android:layout_width="255dp"
         android:layout_height="49dp"
-        android:layout_marginTop="80dp"
         android:ems="10"
         android:hint="Descríbete un poco!"
         android:inputType="textPersonName"
         android:minHeight="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/selectImage" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.426" />
 
     <Spinner
         android:id="@+id/seleccionPref"
         android:layout_width="255dp"
         android:layout_height="49dp"
-        android:layout_marginBottom="200dp"
         android:minHeight="48dp"
         android:spinnerMode="dropdown"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="¿Cuándo es tu cumpleaños?"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.369"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seleccionPref" />
-
-    <EditText
-        android:id="@+id/editTextDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:inputType="date"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
-        tools:layout_editor_absoluteX="78dp" />
+        app:layout_constraintTop_toBottomOf="@+id/IdDescripcion"
+        app:layout_constraintVertical_bias="0.092" />
 
     <TextView
         android:id="@+id/textView4"
@@ -76,21 +41,49 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/seleccionPref"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.322"
+        app:layout_constraintHorizontal_bias="0.309"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/IdDescripcion"
-        app:layout_constraintVertical_bias="0.953" />
+        app:layout_constraintVertical_bias="0.648" />
+
+    <DatePicker
+        android:id="@+id/ageSelectionPicker"
+        android:layout_width="384dp"
+        android:layout_height="186dp"
+        android:backgroundTint="#ff4081"
+        android:calendarTextColor="#ff4081"
+        android:calendarViewShown="false"
+        android:datePickerMode="spinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="¿Cuándo es tu cumpleaños?"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.369"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seleccionPref"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/botonHaciaIntereses"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="44dp"
         android:text="Continuar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.467"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ageSelectionPicker"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/nombreUsuario"
@@ -99,27 +92,31 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/IdDescripcion"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.483"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/selectImage" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
-    <Button
+    <ImageView
         android:id="@+id/selectImage"
-        android:layout_width="170dp"
-        android:layout_height="170dp"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/select_foto"
-        android:text="Selecciona Imagen"
+        android:layout_width="231dp"
+        android:layout_height="177dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/appiconv2"
+        tools:srcCompat="@drawable/appiconv2" />
 
-    <Spinner
-        android:id="@+id/seleccionGen"
-        android:layout_width="255dp"
-        android:layout_height="49dp"
-        android:spinnerMode="dropdown"
-        tools:layout_editor_absoluteX="76dp"
-        tools:layout_editor_absoluteY="390dp" />
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Seleccione una imagen de perfil"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.313" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
