@@ -9,7 +9,6 @@
         android:id="@+id/toolbar"
         android:layout_width="402dp"
         android:layout_height="74dp"
-        android:layout_marginBottom="16dp"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
@@ -31,6 +30,7 @@
         android:layout_width="67dp"
         android:layout_height="60dp"
         android:layout_marginStart="50dp"
+        android:layout_marginTop="3dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imgperfil"
         app:srcCompat="@drawable/chat_im" />
@@ -40,6 +40,7 @@
         android:layout_width="85dp"
         android:layout_height="63dp"
         android:layout_marginStart="37dp"
+        android:layout_marginTop="3dp"
         app:layout_constraintStart_toEndOf="@+id/imgchat"
         app:layout_constraintTop_toTopOf="@+id/toolbar"
         app:srcCompat="@drawable/editar_perf_im" />
@@ -49,6 +50,7 @@
         android:layout_width="63dp"
         android:layout_height="65dp"
         android:layout_marginStart="37dp"
+        android:layout_marginTop="3dp"
         app:layout_constraintStart_toEndOf="@+id/imgperfil"
         app:layout_constraintTop_toTopOf="@+id/toolbar"
         app:srcCompat="@drawable/love_im" />

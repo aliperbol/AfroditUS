@@ -14,6 +14,11 @@
     <string-array name="preferencias">
         <item>Hombres</item>
         <item>Mujeres</item>
-        <item>Ambos</item>
+        <item>No me importa</item>
+    </string-array>
+    <string-array name="genero">
+        <item>Hombre</item>
+        <item>Mujer</item>
+        <item>Otro</item>
     </string-array>
 </resources>
