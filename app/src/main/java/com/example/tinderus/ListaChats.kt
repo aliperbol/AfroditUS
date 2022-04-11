@@ -16,7 +16,7 @@ import java.util.*
 class ListaChats : AppCompatActivity() {
     private var user = ""
 
-    private var db = Firebase.firestore
+    private var db = Firebase.firestor
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

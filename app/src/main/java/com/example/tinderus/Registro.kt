@@ -11,19 +11,30 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
-private lateinit var auth: FirebaseAuth
+/////////////////////
+//    Variables    //
+/////////////////////
+
+private lateinit var auth: FirebaseAuth   //Instancia de autenticación Firebase
+
+/////////////////////
+//    Funciones    //
+/////////////////////
 
 class Registro : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
 
-
         super.onCreate(savedInstanceState)
+
+        //Establecemos la pantalla de inicio de sesión como vista actual
         setContentView(R.layout.registro)
 
+        //
 
-        setup()
+        //Llamamos a la función register, donde se registra al usuario
+        register()
     }
-    private fun setup(){
+    private fun register(){
         title = "Autenticación"
         findViewById<Button>(R.id.botonRegistro).setOnClickListener {
 

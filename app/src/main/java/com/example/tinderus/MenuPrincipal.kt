@@ -10,9 +10,12 @@ import com.google.firebase.ktx.Firebase
 
 
 class MenuPrincipal : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.menu_principal)
+
+        //Asignación de valores a variables
         val bundle = intent.extras
         val email = bundle?.getString("email")
         val provider = bundle?.getString("provider")
