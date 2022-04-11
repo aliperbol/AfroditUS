@@ -10,7 +10,7 @@ import com.example.tinderus.ChatAdapter
 import com.example.tinderus.R
 import com.google.firebase.ktx.Firebase
 import java.util.*
-
+/*
 
 
 class ListaChats : AppCompatActivity() {
@@ -87,4 +87,4 @@ class ListaChats : AppCompatActivity() {
         intent.putExtra("user", user)
         startActivity(intent)
     }
-}
+}*/

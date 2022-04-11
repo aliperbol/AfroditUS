@@ -4,10 +4,11 @@ package com.example.tinderus
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.CheckBox
-import android.widget.CompoundButton
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 
 
 class Intereses : AppCompatActivity(){
@@ -35,6 +36,16 @@ class Intereses : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.intereses)
+
+        val bundle = intent.extras
+        //Tomamos el nombre de usuario del registro
+        val nombre = bundle?.getString("nombre") ?: ""
+        val descripcion = bundle?.getString("descripcion") ?: ""
+        val urlImagen = bundle?.getString("urlImagen") ?: ""
+        val genero = bundle?.getString("genero") ?: ""
+        val preferencia = bundle?.getString("preferencia") ?: ""
+        val fecha = bundle?.getString("fecha") ?: ""
+
 
         cultural = findViewById(R.id.cultural)
         music = findViewById(R.id.music)
@@ -106,17 +117,35 @@ class Intereses : AppCompatActivity(){
 
         }**/
 
-        buttonClick.isEnabled = true
 
+
+        fun guardarUsuarioEnFirebase(){
+
+            val uid = FirebaseAuth.getInstance().uid ?: ""
+            val ref = Firebase.database.getReference()
+            val us : Map<String, String> = mapOf(
+                "uid" to uid,
+                "nombre" to nombre,
+                "fotoPerfilURL" to urlImagen,
+                "descripcion" to descripcion,
+                "genero" to genero,
+                "preferencia" to preferencia,
+                "fechaNacimiento" to fecha
+
+            )
+
+            ref.child("Usuarios").child(uid).setValue(us).addOnSuccessListener {
+                Toast.makeText(this, "se ha subido el usuario", Toast.LENGTH_SHORT).show()
+
+            }
+        }
 
 
         buttonClick.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
+            guardarUsuarioEnFirebase()
             startActivity(intent)
         }
-
-
-
 
     }
 }
