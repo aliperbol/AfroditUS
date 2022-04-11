@@ -95,10 +95,10 @@ class IniciarSesion : AppCompatActivity(){
         val dialog: AlertDialog = builder.create()
         dialog.show()
     }
-
     private fun chats() {
         //Función auxiliar que envía al usuario autenticado hasta su lista de chats
         val intent = Intent(this, ListaChats::class.java)
         startActivity(intent)
     }
 }
+

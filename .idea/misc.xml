@@ -16,6 +16,7 @@
         <entry key="..\:/Users/USUARIO/Desktop/MariconeUS/app/src/main/res/layout/primer_perfil.xml" value="0.264" />
         <entry key="..\:/Users/USUARIO/Desktop/MariconeUS/app/src/main/res/layout/registro.xml" value="0.264" />
 <<<<<<< HEAD
+<<<<<<< HEAD
         <entry key="..\:/Users/morit/Desktop/CM/AfroditUS/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
         <entry key="..\:/Users/morit/Desktop/CM/AfroditUS/app/src/main/res/layout/barra_menu.xml" value="0.1897644927536232" />
         <entry key="..\:/Users/morit/Desktop/CM/AfroditUS/app/src/main/res/layout/primer_perfil.xml" value="0.1897644927536232" />
@@ -36,6 +37,17 @@
         <entry key="..\:/Users/paula/Desktop/Universidad/4/CM/MariconeUS/app/src/main/res/layout/primer_perfil.xml" value="0.11302083333333333" />
         <entry key="..\:/Users/paula/Desktop/Universidad/4/CM/MariconeUS/app/src/main/res/layout/registro.xml" value="0.11197916666666667" />
 >>>>>>> 2f835a1d2a5d991b4c91f40bdd4d2712e91af3fc
+=======
+        <entry key="..\:/Users/USUARIO/Desktop/Universidad/MariconeUS/app/src/main/res/layout/menu_principal.xml" value="0.264" />
+        <entry key="..\:/Users/USUARIO/Desktop/Universidad/MariconeUS/app/src/main/res/layout/primer_perfil.xml" value="0.16" />
+        <entry key="..\:/Users/almug/Desktop/CM/MariconeUS/app/src/main/res/layout/activity_chat.xml" value="0.1394736842105263" />
+        <entry key="..\:/Users/almug/Desktop/CM/MariconeUS/app/src/main/res/layout/activity_list_of_chats.xml" value="0.1394736842105263" />
+        <entry key="..\:/Users/almug/Desktop/CM/MariconeUS/app/src/main/res/layout/activity_main.xml" value="0.1394736842105263" />
+        <entry key="..\:/Users/almug/Desktop/CM/MariconeUS/app/src/main/res/layout/intereses.xml" value="0.2" />
+        <entry key="..\:/Users/almug/Desktop/CM/MariconeUS/app/src/main/res/layout/item_chat.xml" value="0.2" />
+        <entry key="..\:/Users/almug/Desktop/CM/MariconeUS/app/src/main/res/layout/item_message.xml" value="0.1394736842105263" />
+        <entry key="..\:/Users/almug/Desktop/CM/MariconeUS/app/src/main/res/layout/primer_perfil.xml" value="0.2" />
+>>>>>>> 2f8e50b4a73a2a99ad3b68d78ed264df784a5145
       </map>
     </option>
   </component>
