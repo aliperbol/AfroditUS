@@ -65,12 +65,10 @@ class IniciarSesion : AppCompatActivity(){
                     //En caso de inicio exitoso, ejecutamos la función chats, que enviará al usuario
                     //hasta su lista de chats
                     if (it.isSuccessful){
-                        Log.i("STATE","esta weno")
                         chats()
                     }
                     //En caso contrario, mostramos un mensaje de error
                     else{
-                        Log.i("STATE","no esta weno")
                         showAlert("Se ha producido un error autenticando al usuario")
                     }
                 }
@@ -97,7 +95,7 @@ class IniciarSesion : AppCompatActivity(){
     }
     private fun chats() {
         //Función auxiliar que envía al usuario autenticado hasta su lista de chats
-        val intent = Intent(this, ListaChats::class.java)
+        val intent = Intent(this, Primer_perfil::class.java) //Cambiar a chats
         startActivity(intent)
     }
 }

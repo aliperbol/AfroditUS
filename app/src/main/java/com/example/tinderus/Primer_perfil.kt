@@ -31,7 +31,6 @@ class Primer_perfil:AppCompatActivity() {
         val bundle = intent.extras
         //Tomamos el nombre de usuario del registro
         val username = bundle?.getString("username")
-
         findViewById<TextView>(R.id.nombreUsuario).text = username
 
         //Seleccionar tu genero

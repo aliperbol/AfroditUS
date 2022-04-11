@@ -12,6 +12,8 @@ import com.google.firebase.ktx.Firebase
 
 
 class Intereses : AppCompatActivity(){
+
+    //Definimos los checkBox relativos a los posibles intereses del usuario
     lateinit var cultural: CheckBox
     lateinit var music: CheckBox
     lateinit var gym: CheckBox
@@ -32,13 +34,17 @@ class Intereses : AppCompatActivity(){
     lateinit var viajar: CheckBox
     lateinit var voluntariado: CheckBox
 
-    var contador= 0
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
+
+        //Cambiamos la vista a la de selección de intereses
         setContentView(R.layout.intereses)
 
+        //Mediante el bundle tomaremos los datos enviados desde el activity anterior
         val bundle = intent.extras
-        //Tomamos el nombre de usuario del registro
+
+        //Tomamos los datos del usuario del registro
         val nombre = bundle?.getString("nombre") ?: ""
         val descripcion = bundle?.getString("descripcion") ?: ""
         val urlImagen = bundle?.getString("urlImagen") ?: ""
@@ -46,7 +52,7 @@ class Intereses : AppCompatActivity(){
         val preferencia = bundle?.getString("preferencia") ?: ""
         val fecha = bundle?.getString("fecha") ?: ""
 
-
+        //Asignamos valores a cada variable definida anteriormente
         cultural = findViewById(R.id.cultural)
         music = findViewById(R.id.music)
         gym = findViewById(R.id.gym)
@@ -68,61 +74,11 @@ class Intereses : AppCompatActivity(){
         voluntariado = findViewById(R.id.voluntariado)
         val buttonClick = findViewById<Button>(R.id.siguiente)
 
-       /**if(anime.isChecked){
-
-           anime.setChecked(true)
-
-           contador += 1
-           println("+1")
-
-        }else if (cultural.isChecked == true){
-            contador= contador + 1
-        }else if (music.isChecked == true){
-            contador= contador + 1
-            println("+1")
-        }else if (gym.isChecked == true){
-            contador+=1
-        }else if (artistmusic.isChecked == true){
-            contador+=1
-        }else if (dibujar.isChecked == true){
-            contador+=1
-        }else if (leer.isChecked == true){
-            contador+=1
-        }else if (fiesta.isChecked == true){
-            contador+=1
-        }else if (juegos.isChecked == true){
-            contador+=1
-        }else if (modelaje.isChecked == true){
-            contador+=1
-        }else if (costura.isChecked == true){
-            contador+=1
-        }else if (foto.isChecked == true){
-            contador+=1
-        }else if (videojuegos.isChecked == true){
-            contador+=1
-        }else if (maqueta.isChecked == true){
-            contador+=1
-        }else if (videojuegos.isChecked == true){
-            contador+=1
-        }else if (logica.isChecked == true){
-            contador+=1
-        }else if (cocinar.isChecked == true){
-            contador+=1
-        }else if (jardineria.isChecked == true){
-            contador+=1
-        }else if (voluntariado.isChecked == true){
-            contador+=1
-        }else {
-            contador-=1
-
-        }**/
-
-
-
         fun guardarUsuarioEnFirebase(){
 
-            val uid = FirebaseAuth.getInstance().uid ?: ""
-            val ref = Firebase.database.getReference()
+            //Función que se encarga de registrar el usuario en la base de datos
+            val uid = FirebaseAuth.getInstance().uid ?: "" //ID de usuario
+            val ref = Firebase.database.getReference()     //Ref a DB
             val us : Map<String, String> = mapOf(
                 "uid" to uid,
                 "nombre" to nombre,
@@ -132,15 +88,15 @@ class Intereses : AppCompatActivity(){
                 "preferencia" to preferencia,
                 "fechaNacimiento" to fecha
 
-            )
+            ) //Se trata del usuario en sí
 
+            //En la base de datos, añadiremos los usuarios como nuevos nodos que cuelgan del principal "Usuarios"
             ref.child("Usuarios").child(uid).setValue(us).addOnSuccessListener {
                 Toast.makeText(this, "se ha subido el usuario", Toast.LENGTH_SHORT).show()
-
             }
         }
 
-
+        //Al hacer click sobre el botón, se registra el usuario en la base de datos
         buttonClick.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             guardarUsuarioEnFirebase()
