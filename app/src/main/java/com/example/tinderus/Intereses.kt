@@ -10,7 +10,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
-
 class Intereses : AppCompatActivity(){
 
     //Definimos los checkBox relativos a los posibles intereses del usuario
@@ -50,7 +49,7 @@ class Intereses : AppCompatActivity(){
         val urlImagen = bundle?.getString("urlImagen") ?: ""
         val genero = bundle?.getString("genero") ?: ""
         val preferencia = bundle?.getString("preferencia") ?: ""
-        val fecha = bundle?.getString("fecha") ?: ""
+        //val fecha = bundle?.getString("fecha") ?: ""
 
         //Asignamos valores a cada variable definida anteriormente
         cultural = findViewById(R.id.cultural)
@@ -86,7 +85,7 @@ class Intereses : AppCompatActivity(){
                 "descripcion" to descripcion,
                 "genero" to genero,
                 "preferencia" to preferencia,
-                "fechaNacimiento" to fecha
+                //"fechaNacimiento" to fecha
 
             ) //Se trata del usuario en sí
 
@@ -98,7 +97,7 @@ class Intereses : AppCompatActivity(){
 
         //Al hacer click sobre el botón, se registra el usuario en la base de datos
         buttonClick.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, MenuPrincipal::class.java)
             guardarUsuarioEnFirebase()
             startActivity(intent)
         }

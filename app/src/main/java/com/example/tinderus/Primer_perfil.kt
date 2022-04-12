@@ -60,28 +60,30 @@ class Primer_perfil:AppCompatActivity() {
         val genero: String = findViewById<Spinner>(R.id.seleccionGenero).selectedItem.toString()
         val preferencia: String = findViewById<Spinner>(R.id.seleccionPref).selectedItem.toString()
         val fechaNacimiento: String = findViewById<EditText>(R.id.fechaNacimiento).text.toString()
-        fun getPattern() = """\d{2}\.\d{2}\.\d{4}"""
+        fun getPattern() ="""\d{2}\/\d{2}\/\d{4}"""
 
 
         //Onclick para finalizar y conducir a intereses
         val buttonClick = findViewById<Button>(R.id.botonHaciaIntereses)
         buttonClick.setOnClickListener {
             val intent = Intent(this, Intereses::class.java).apply {
-                if(!fechaNacimiento.matches(getPattern().toRegex())){
-                    Toast.makeText(this@Primer_perfil, "Formato de fecha erróneo", Toast.LENGTH_SHORT).show()
-                }else{
+               // if(!fechaNacimiento.matches(getPattern().toRegex())){
+                //    Toast.makeText(this@Primer_perfil, "Formato de fecha erróneo", Toast.LENGTH_SHORT).show()
+               // }else{
                     putExtra("urlImagen", subirFotoAFirebase())
                     putExtra("fecha", fechaNacimiento)
                     putExtra("nombre", nombre)
                     putExtra("descripcion", descripcion)
                     putExtra("genero", genero)
                     putExtra("preferencia", preferencia)
-                }
+               // }
 
             }
 
 
             startActivity(intent)
+
+
 
         }
 
@@ -130,6 +132,7 @@ class Primer_perfil:AppCompatActivity() {
             imagen.setImageURI(fotoSeleccionadaURL)
         }
     }
+
 
 
 }
