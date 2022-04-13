@@ -45,11 +45,11 @@ class Intereses : AppCompatActivity(){
 
         //Tomamos los datos del usuario del registro
         val nombre = bundle?.getString("nombre") ?: ""
-        val descripcion = bundle?.getString("descripcion") ?: ""
-        val urlImagen = bundle?.getString("urlImagen") ?: ""
+        val descripcion = bundle?.getString("descripcion") ?: "no funciona"
+        val urlImagen = bundle?.getString("urlImagen") ?: "tampoco funciona"
         val genero = bundle?.getString("genero") ?: ""
         val preferencia = bundle?.getString("preferencia") ?: ""
-        //val fecha = bundle?.getString("fecha") ?: ""
+        val fecha = bundle?.getString("fecha") ?: ""
 
         //Asignamos valores a cada variable definida anteriormente
         cultural = findViewById(R.id.cultural)
@@ -85,7 +85,7 @@ class Intereses : AppCompatActivity(){
                 "descripcion" to descripcion,
                 "genero" to genero,
                 "preferencia" to preferencia,
-                //"fechaNacimiento" to fecha
+                "fechaNacimiento" to fecha
 
             ) //Se trata del usuario en sí
 

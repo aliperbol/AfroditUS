@@ -55,38 +55,11 @@ class Primer_perfil:AppCompatActivity() {
 
 
         //Valores que pasamos a la siguiente pagina para subirlo a la DB
-        val nombre: String = findViewById<TextView>(R.id.nombreUsuario).text.toString()
-        val descripcion = findViewById<EditText>(R.id.IdDescripcion).text.toString()
-        val genero: String = findViewById<Spinner>(R.id.seleccionGenero).selectedItem.toString()
-        val preferencia: String = findViewById<Spinner>(R.id.seleccionPref).selectedItem.toString()
-        val fechaNacimiento: String = findViewById<EditText>(R.id.fechaNacimiento).text.toString()
-        fun getPattern() ="""\d{2}\/\d{2}\/\d{4}"""
 
-
-        //Onclick para finalizar y conducir a intereses
         val buttonClick = findViewById<Button>(R.id.botonHaciaIntereses)
         buttonClick.setOnClickListener {
-            val intent = Intent(this, Intereses::class.java).apply {
-               // if(!fechaNacimiento.matches(getPattern().toRegex())){
-                //    Toast.makeText(this@Primer_perfil, "Formato de fecha erróneo", Toast.LENGTH_SHORT).show()
-               // }else{
-                    putExtra("urlImagen", subirFotoAFirebase())
-                    putExtra("fecha", fechaNacimiento)
-                    putExtra("nombre", nombre)
-                    putExtra("descripcion", descripcion)
-                    putExtra("genero", genero)
-                    putExtra("preferencia", preferencia)
-               // }
-
-            }
-
-
-            startActivity(intent)
-
-
-
+            subirFotoAFirebase()
         }
-
         //Colocamos un onclick sobre la imagen para porder subir el archivo
         findViewById<ImageView>(R.id.selectImage).setOnClickListener{
             val intent = Intent(Intent.ACTION_PICK)
@@ -96,28 +69,56 @@ class Primer_perfil:AppCompatActivity() {
 
     }
 
-    private fun subirFotoAFirebase(): String {
+    private fun subirFotoAFirebase() {
+
         if(fotoSeleccionadaURL == null){
-            return "null"
+            Toast.makeText(this, "fallo", Toast.LENGTH_SHORT).show()
         }
         else {
+
             val filename = UUID.randomUUID().toString()
-            var imagen = ""
             val ref = FirebaseStorage.getInstance().getReference("/FotoPerfil/$filename")
             ref.putFile(fotoSeleccionadaURL!!)
                 .addOnSuccessListener {
-                    Log.d("RegisterActivity", "Successfully upload image: ${it.metadata?.path}}")
 
                     ref.downloadUrl.addOnSuccessListener {
-                        Toast.makeText(this, "Procede a subir usuario", Toast.LENGTH_SHORT).show()
-                        imagen = it.toString()
+                            haciaIntereses(it.toString())
                     }.addOnFailureListener {
-                        Toast.makeText(this, "No se ha podido subir el usuario", Toast.LENGTH_SHORT)
-                            .show()
+                        Toast.makeText(this, "No se ha podido subir la imagen", Toast.LENGTH_SHORT).show()
+
                     }
                 }
-            return imagen
+
         }
+
+    }
+    private fun haciaIntereses(imagenURL: String){
+        val nombre: String = findViewById<TextView>(R.id.nombreUsuario).text.toString()
+        val descripcion = findViewById<EditText>(R.id.IdDescripcion).text.toString()
+        val genero: String = findViewById<Spinner>(R.id.seleccionGenero).selectedItem.toString()
+        val preferencia: String = findViewById<Spinner>(R.id.seleccionPref).selectedItem.toString()
+        val fechaNacimiento: String = findViewById<EditText>(R.id.fechaNacimiento).text.toString()
+        fun getPattern() ="""\d{2}\/\d{2}\/\d{4}"""
+        var fechaCorrecta = false
+
+            val intent = Intent(this, Intereses::class.java).apply {
+                if(!fechaNacimiento.matches(getPattern().toRegex())){
+                    Toast.makeText(this@Primer_perfil, "Formato de fecha erróneo", Toast.LENGTH_SHORT).show()
+                }else{
+                    putExtra("urlImagen", imagenURL)
+                    putExtra("fecha", fechaNacimiento)
+                    putExtra("nombre", nombre)
+                    putExtra("descripcion", descripcion)
+                    putExtra("genero", genero)
+                    putExtra("preferencia", preferencia)
+                    fechaCorrecta=true
+                }
+            }
+        if (fechaCorrecta){
+            startActivity(intent)
+        }
+
+
     }
 
 
