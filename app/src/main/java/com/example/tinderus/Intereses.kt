@@ -8,6 +8,7 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.ktx.database
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 class Intereses : AppCompatActivity(){
@@ -52,33 +53,98 @@ class Intereses : AppCompatActivity(){
         val fecha = bundle?.getString("fecha") ?: ""
 
         //Asignamos valores a cada variable definida anteriormente
-        cultural = findViewById(R.id.cultural)
-        music = findViewById(R.id.music)
-        gym = findViewById(R.id.gym)
-        artistmusic = findViewById(R.id.artistmusic)
-        anime = findViewById(R.id.anime)
-        dibujar = findViewById(R.id.dibujar)
-        leer = findViewById(R.id.leer)
-        fiesta = findViewById(R.id.fiesta)
-        juegos = findViewById(R.id.juegos)
-        foto = findViewById(R.id.foto)
-        modelaje = findViewById(R.id.modelaje)
-        costura = findViewById(R.id.costura)
-        videojuegos = findViewById(R.id.videojuegos)
-        maqueta = findViewById(R.id.maqueta)
-        logica = findViewById(R.id.logica)
-        cocinar = findViewById(R.id.cocinar)
-        jardineria = findViewById(R.id.jardineria)
-        viajar = findViewById(R.id.viajar)
-        voluntariado = findViewById(R.id.voluntariado)
+        var cultural = findViewById<CheckBox>(R.id.cultural)
+        var music = findViewById<CheckBox>(R.id.music)
+        var gym = findViewById<CheckBox>(R.id.gym)
+        var artistmusic = findViewById<CheckBox>(R.id.artistmusic)
+        var anime = findViewById<CheckBox>(R.id.anime)
+        var dibujar = findViewById<CheckBox>(R.id.dibujar)
+        var leer = findViewById<CheckBox>(R.id.leer)
+        var fiesta = findViewById<CheckBox>(R.id.fiesta)
+        var juegos = findViewById<CheckBox>(R.id.juegos)
+        var foto = findViewById<CheckBox>(R.id.foto)
+        var modelaje = findViewById<CheckBox>(R.id.modelaje)
+        var costura = findViewById<CheckBox>(R.id.costura)
+        var videojuegos = findViewById<CheckBox>(R.id.videojuegos)
+        var maqueta = findViewById<CheckBox>(R.id.maqueta)
+        var logica = findViewById<CheckBox>(R.id.logica)
+        var cocinar = findViewById<CheckBox>(R.id.cocinar)
+        var jardineria = findViewById<CheckBox>(R.id.jardineria)
+        var viajar = findViewById<CheckBox>(R.id.viajar)
+        var voluntariado = findViewById<CheckBox>(R.id.voluntariado)
+
+
         val buttonClick = findViewById<Button>(R.id.siguiente)
+
+        fun listaGustos(): List<String>{
+            val listaGustos = mutableListOf<String>()
+            if(cultural.isChecked){
+                listaGustos.add(cultural.getText().toString())
+            }
+            if(music.isChecked){
+                listaGustos.add(music.getText().toString())
+            }
+            if(gym.isChecked){
+                listaGustos.add(gym.getText().toString())
+            }
+            if(artistmusic.isChecked){
+                listaGustos.add(artistmusic.getText().toString())
+            }
+            if(anime.isChecked){
+                listaGustos.add(anime.getText().toString())
+            }
+            if(dibujar.isChecked){
+                listaGustos.add(dibujar.getText().toString())
+            }
+            if(leer.isChecked){
+                listaGustos.add(leer.getText().toString())
+            }
+            if(fiesta.isChecked){
+                listaGustos.add(fiesta.getText().toString())
+            }
+            if(juegos.isChecked){
+                listaGustos.add(juegos.getText().toString())
+            }
+            if(foto.isChecked){
+                listaGustos.add(foto.getText().toString())
+            }
+            if(modelaje.isChecked){
+                listaGustos.add(modelaje.getText().toString())
+            }
+            if(costura.isChecked){
+                listaGustos.add(costura.getText().toString())
+            }
+            if(videojuegos.isChecked){
+                listaGustos.add(videojuegos.getText().toString())
+            }
+            if(maqueta.isChecked){
+                listaGustos.add(maqueta.getText().toString())
+            }
+            if(logica.isChecked){
+                listaGustos.add(logica.getText().toString())
+            }
+            if(cocinar.isChecked){
+                listaGustos.add(cocinar.getText().toString())
+            }
+            if(jardineria.isChecked){
+                listaGustos.add(jardineria.getText().toString())
+            }
+            if(viajar.isChecked){
+                listaGustos.add(viajar.getText().toString())
+            }
+            if(voluntariado.isChecked){
+                listaGustos.add(voluntariado.getText().toString())
+            }
+            return listaGustos
+
+        }
 
         fun guardarUsuarioEnFirebase(){
 
             //Función que se encarga de registrar el usuario en la base de datos
             val uid = FirebaseAuth.getInstance().uid ?: "" //ID de usuario
             val ref = Firebase.database.getReference()     //Ref a DB
-            val us : Map<String, String> = mapOf(
+            val us : Map<String, Any> = mapOf(
                 "uid" to uid,
                 "nombre" to nombre,
                 "fotoPerfilURL" to urlImagen,
@@ -86,6 +152,7 @@ class Intereses : AppCompatActivity(){
                 "genero" to genero,
                 "preferencia" to preferencia,
                 "fechaNacimiento" to fecha,
+                "intereses" to listaGustos(),
 
             ) //Se trata del usuario en sí
 

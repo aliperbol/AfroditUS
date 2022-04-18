@@ -97,8 +97,8 @@ class Primer_perfil:AppCompatActivity() {
         val descripcion = findViewById<EditText>(R.id.IdDescripcion).text.toString()
         val genero: String = findViewById<Spinner>(R.id.seleccionGenero).selectedItem.toString()
         val preferencia: String = findViewById<Spinner>(R.id.seleccionPref).selectedItem.toString()
-        val fechaNacimiento: String = findViewById<EditText>(R.id.fechaNacimiento).text.toString()
-        fun getPattern() ="""\d{2}\/\d{2}\/\d{4}"""
+        val fechaNacimiento: String = findViewById<EditText>(R.id.edad).text.toString()
+        fun getPattern() ="""\d{2}"""
         var fechaCorrecta = false
 
             val intent = Intent(this, Intereses::class.java).apply {
@@ -117,7 +117,6 @@ class Primer_perfil:AppCompatActivity() {
         if (fechaCorrecta){
             startActivity(intent)
         }
-
 
     }
 
