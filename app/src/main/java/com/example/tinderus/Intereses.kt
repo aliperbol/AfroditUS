@@ -151,7 +151,7 @@ class Intereses : AppCompatActivity(){
                 "descripcion" to descripcion,
                 "genero" to genero,
                 "preferencia" to preferencia,
-                "fechaNacimiento" to fecha,
+                "edad" to fecha,
                 "intereses" to listaGustos(),
 
             ) //Se trata del usuario en sí

@@ -31,7 +31,7 @@ class Primer_perfil:AppCompatActivity() {
         val bundle = intent.extras
         //Tomamos el nombre de usuario del registro
         val username = bundle?.getString("username")
-        findViewById<TextView>(R.id.nombreUsuario).text = username
+        findViewById<TextView>(R.id.nombreUsuario).text = "¡Hola, " +  username + "!"
 
         //Seleccionar tu genero
         val spinnerGenero = findViewById<Spinner>(R.id.seleccionGenero)
