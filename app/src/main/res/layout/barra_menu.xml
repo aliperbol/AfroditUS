@@ -7,14 +7,14 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
-        android:layout_width="402dp"
-        android:layout_height="74dp"
+        android:layout_width="412dp"
+        android:layout_height="60dp"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
@@ -27,33 +27,33 @@
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/imgchat"
-        android:layout_width="67dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="3dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imgperfil"
+        android:layout_width="54dp"
+        android:layout_height="46dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imgperfil"
+        app:layout_constraintStart_toEndOf="@+id/homeid"
+        app:layout_constraintTop_toTopOf="@+id/toolbar"
         app:srcCompat="@drawable/chat_im" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/imgperfil"
-        android:layout_width="85dp"
-        android:layout_height="63dp"
-        android:layout_marginStart="37dp"
-        android:layout_marginTop="3dp"
-        app:layout_constraintStart_toEndOf="@+id/imgchat"
+        android:layout_width="54dp"
+        android:layout_height="46dp"
+        android:layout_marginEnd="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar"
         app:layout_constraintTop_toTopOf="@+id/toolbar"
         app:srcCompat="@drawable/editar_perf_im" />
 
-    <androidx.constraintlayout.utils.widget.ImageFilterView
-        android:id="@+id/imglove"
-        android:layout_width="63dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="37dp"
-        android:layout_marginTop="3dp"
-        app:layout_constraintStart_toEndOf="@+id/imgperfil"
+    <ImageView
+        android:id="@+id/homeid"
+        android:layout_width="54dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imgchat"
+        app:layout_constraintStart_toStartOf="@+id/toolbar"
         app:layout_constraintTop_toTopOf="@+id/toolbar"
-        app:srcCompat="@drawable/love_im" />
+        app:srcCompat="@drawable/hogar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

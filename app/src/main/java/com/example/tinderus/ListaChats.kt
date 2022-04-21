@@ -8,15 +8,17 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tinderus.Chat
 import com.example.tinderus.ChatAdapter
 import com.example.tinderus.R
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import java.util.*
-/*
+
+
 
 
 class ListaChats : AppCompatActivity() {
     private var user = ""
 
-    private var db = Firebase.firestor
+    private var db = Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -87,4 +89,4 @@ class ListaChats : AppCompatActivity() {
         intent.putExtra("user", user)
         startActivity(intent)
     }
-}*/
+}
