@@ -7,8 +7,8 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
-        android:layout_width="402dp"
-        android:layout_height="74dp"
+        android:layout_width="411dp"
+        android:layout_height="72dp"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
@@ -29,8 +29,8 @@
         android:id="@+id/imgchat"
         android:layout_width="67dp"
         android:layout_height="60dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="3dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="4dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imgperfil"
         app:srcCompat="@drawable/chat_im" />
@@ -39,21 +39,22 @@
         android:id="@+id/imgperfil"
         android:layout_width="85dp"
         android:layout_height="63dp"
-        android:layout_marginStart="37dp"
-        android:layout_marginTop="3dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="4dp"
         app:layout_constraintStart_toEndOf="@+id/imgchat"
         app:layout_constraintTop_toTopOf="@+id/toolbar"
         app:srcCompat="@drawable/editar_perf_im" />
 
-    <androidx.constraintlayout.utils.widget.ImageFilterView
-        android:id="@+id/imglove"
-        android:layout_width="63dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="37dp"
-        android:layout_marginTop="3dp"
-        app:layout_constraintStart_toEndOf="@+id/imgperfil"
-        app:layout_constraintTop_toTopOf="@+id/toolbar"
-        app:srcCompat="@drawable/love_im" />
+    <ImageView
+        android:id="@+id/imgInicio"
+        android:layout_width="55dp"
+        android:layout_height="58dp"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imgchat"
+        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintStart_toStartOf="@+id/toolbar"
+        app:srcCompat="@drawable/inicio" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
