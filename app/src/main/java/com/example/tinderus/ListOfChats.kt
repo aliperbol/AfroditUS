@@ -46,7 +46,9 @@ class ListOfChatsActivity : AppCompatActivity() {
         }
 
         //Comprobamos si este valor es nulo. En caso negativo ejecutamos
+        println("Antes de iniciar la comprobación de usuario")
         if(usuario.isNotEmpty()){
+            println("Antes de iniciar la vista")
             initViews()
         }
     }
@@ -64,7 +66,7 @@ class ListOfChatsActivity : AppCompatActivity() {
                 chat -> chatSelected(chat)
             }
         //Creamos una referencia para la colección de usuarios
-        val refUsuarios = db.collection("usuarios").document(usuario)
+        val refUsuarios = db.collection("Usuarios").document(usuario)
 
         //Del usuario actual, tomamos sus chats
         refUsuarios.collection("chats").get().addOnSuccessListener {
@@ -113,8 +115,8 @@ class ListOfChatsActivity : AppCompatActivity() {
 
         //Ahora debemos incluir este chat en la database del usuario que lo inicia y del que lo recibe
         db.collection("chats").document(chatId).set(chat)
-        db.collection("usuarios").document(usuario).collection("chats").document(chatId).set(chatId)
-        db.collection("usuarios").document(usuarioReceptor).collection("chats").document(chatId).set(chatId)
+        db.collection("Usuarios").document(usuario).collection("chats").document(chatId).set(chatId)
+        db.collection("Usuarios").document(usuarioReceptor).collection("chats").document(chatId).set(chatId)
 
         //Enviamos a la siguiente pantalla el usuario y el chatId
         val intent = Intent(this,ChatActivity::class.java)

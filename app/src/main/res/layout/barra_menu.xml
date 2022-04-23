@@ -14,10 +14,10 @@
             android:theme="?attr/actionBarTheme"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.666"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.998" />
+            app:layout_constraintVertical_bias="1.0" />
 
         <ImageView
             android:id="@+id/imgInicio"
@@ -25,10 +25,10 @@
             android:layout_height="65dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.161"
+            app:layout_constraintHorizontal_bias="0.146"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.997"
+            app:layout_constraintVertical_bias="1.0"
             app:srcCompat="@drawable/hogar" />
 
         <ImageView
@@ -37,10 +37,10 @@
             android:layout_height="60dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.526"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.996"
+            app:layout_constraintVertical_bias="1.0"
             app:srcCompat="@drawable/chat_im" />
 
         <ImageView
@@ -49,9 +49,9 @@
             android:layout_height="55dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.846"
+            app:layout_constraintHorizontal_bias="0.852"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.989"
-            app:srcCompat="@drawable/iconoUsuario" />
+            app:layout_constraintVertical_bias="0.996"
+            app:srcCompat="@drawable/iconousuario" />
 </androidx.constraintlayout.widget.ConstraintLayout>

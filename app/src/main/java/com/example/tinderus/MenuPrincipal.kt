@@ -17,6 +17,8 @@ import com.google.firebase.ktx.Firebase
 
 class MenuPrincipal : AppCompatActivity() {
 
+    private val auth = Firebase.auth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.menu_principal)
@@ -35,7 +37,9 @@ class MenuPrincipal : AppCompatActivity() {
         val chatButton = findViewById<ImageView>(R.id.imgChats)
         chatButton.setOnClickListener{
             val intent = Intent(this,ListOfChatsActivity::class.java)
+            intent.putExtra("usuario", auth.currentUser?.uid)
             startActivity(intent)
+
         }
 
         val initButton = findViewById<ImageView>(R.id.imgInicio)
@@ -55,8 +59,10 @@ class MenuPrincipal : AppCompatActivity() {
 
     private fun setup(email: String, provider: String) {
         title = "Inicio"
-        findViewById<TextView>(R.id.email_perfil).text = email
-        findViewById<TextView>(R.id.provider_perfil).text = provider
+
+        //Los comento por que no sé para que se usa aquí y daba error
+        //findViewById<TextView>(R.id.email_perfil).text = email
+        //findViewById<TextView>(R.id.provider_perfil).text = provider
 
         findViewById<Button>(R.id.botonCierreSesion).setOnClickListener {
             Firebase.auth.signOut()
@@ -88,16 +94,15 @@ class MenuPrincipal : AppCompatActivity() {
 
         }
         datos.addListenerForSingleValueEvent(valueEventListener)
-
-
-
-
     }
 
     private fun messages(){
+        val currentUser = auth.currentUser
         //Función que lleva al usuario hasta su lista de chats
-        val intent = Intent(this,ChatActivity::class.java)
+        val intent = Intent(this,ListOfChatsActivity::class.java)
+        intent.putExtra("usuario", currentUser?.email)
         startActivity(intent)
+        finish()
     }
 
 }
