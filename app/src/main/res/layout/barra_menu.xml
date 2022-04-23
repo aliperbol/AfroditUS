@@ -5,56 +5,53 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="411dp"
-        android:layout_height="72dp"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="414dp"
+            android:layout_height="65dp"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.998" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="389dp"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"></LinearLayout>
+        <ImageView
+            android:id="@+id/imgInicio"
+            android:layout_width="57dp"
+            android:layout_height="65dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.161"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.997"
+            app:srcCompat="@drawable/hogar" />
 
-    <androidx.constraintlayout.utils.widget.ImageFilterView
-        android:id="@+id/imgchat"
-        android:layout_width="67dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="160dp"
-        android:layout_marginTop="4dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imgperfil"
-        app:srcCompat="@drawable/chat_im" />
+        <ImageView
+            android:id="@+id/imgChats"
+            android:layout_width="58dp"
+            android:layout_height="60dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.526"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.996"
+            app:srcCompat="@drawable/chat_im" />
 
-    <androidx.constraintlayout.utils.widget.ImageFilterView
-        android:id="@+id/imgperfil"
-        android:layout_width="85dp"
-        android:layout_height="63dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="4dp"
-        app:layout_constraintStart_toEndOf="@+id/imgchat"
-        app:layout_constraintTop_toTopOf="@+id/toolbar"
-        app:srcCompat="@drawable/editar_perf_im" />
-
-    <ImageView
-        android:id="@+id/imgInicio"
-        android:layout_width="55dp"
-        android:layout_height="58dp"
-        android:layout_marginBottom="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imgchat"
-        app:layout_constraintHorizontal_bias="0.461"
-        app:layout_constraintStart_toStartOf="@+id/toolbar"
-        app:srcCompat="@drawable/inicio" />
-
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="52dp"
+            android:layout_height="55dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.846"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.989"
+            app:srcCompat="@drawable/iconoUsuario" />
 </androidx.constraintlayout.widget.ConstraintLayout>
-
