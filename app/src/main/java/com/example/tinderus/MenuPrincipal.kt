@@ -5,6 +5,10 @@ import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import android.view.ContextMenu
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -57,6 +61,24 @@ class MenuPrincipal : AppCompatActivity() {
 
         mostrar_usuarios()
     }
+
+    //que aparezca los tres puntitos
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    //opciones de filtros
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        when(item.itemId){
+            R.id.edad -> (R.id.edad)
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+
 
 
     override fun onBackPressed() {
@@ -118,5 +140,6 @@ class MenuPrincipal : AppCompatActivity() {
         startActivity(intent)
         finish()
     }
+
 
 }
