@@ -44,7 +44,7 @@
             app:srcCompat="@drawable/chat_im" />
 
         <ImageView
-            android:id="@+id/imageView5"
+            android:id="@+id/imgPerfil"
             android:layout_width="52dp"
             android:layout_height="55dp"
             app:layout_constraintBottom_toBottomOf="parent"

@@ -18,6 +18,12 @@
         <activity android:name=".MenuPrincipal" />
         <activity android:name=".ChatActivity" />
         <activity android:name=".ListOfChats" />
+        <activity android:name=".Cambiar_contra" />
+        <activity android:name=".Editar_intereses" />
+        <activity android:name=".EditarPerfil" />
+        <activity android:name=".Perfil_propio" />
+
+
 
 
         <activity

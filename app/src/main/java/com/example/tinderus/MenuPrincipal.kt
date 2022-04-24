@@ -1,6 +1,8 @@
 package com.example.tinderus
 
 import android.content.Intent
+import android.graphics.BitmapFactory
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -8,12 +10,15 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.net.toUri
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
+import java.io.File
 
 
 class MenuPrincipal : AppCompatActivity() {
@@ -44,6 +49,12 @@ class MenuPrincipal : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val perfilButton = findViewById<ImageView>(R.id.imgPerfil)
+        perfilButton.setOnClickListener{
+            val intent = Intent(this, Perfil_propio::class.java)
+            startActivity(intent)
+        }
+
         mostrar_usuarios()
     }
 
@@ -57,26 +68,36 @@ class MenuPrincipal : AppCompatActivity() {
         title = "Inicio"
 
 
-        findViewById<Button>(R.id.botonCierreSesion).setOnClickListener {
+        /*findViewById<Button>(R.id.botonCierreSesion).setOnClickListener {
             Firebase.auth.signOut()
             onBackPressed()
-        }
+        }*/
     }
 
     private fun mostrar_usuarios(){
         val datos = Firebase.database.getReference("Usuarios")
 
         val valueEventListener: ValueEventListener = object : ValueEventListener {
+            //Cada vez que cambie algún dato, se modificará directamente en la pagina
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val usuarios = ArrayList<Pair<String?, String?>>()
                 for (ds in dataSnapshot.children) {
                     val name = ds.child("nombre").getValue(String::class.java)
                     val imagen = ds.child("fotoPerfilURL").getValue(String::class.java)
-                    //findViewById<TextView>(R.id.username1).text = name
+
 
                     val par = Pair(name, imagen)
                     usuarios.add(par)
                     Log.d("FragmentActivity", "usernames : $name")
+                }
+                findViewById<TextView>(R.id.username1).text = usuarios[0].first
+
+                //Obtenemos la imagen de storage de firebase y la ponemos en el perfil del usuario
+                val localfile = File.createTempFile("tempImage", "jpj")
+                var imagen = usuarios[0].second
+                FirebaseStorage.getInstance().getReferenceFromUrl(imagen ?: "").getFile(localfile).addOnSuccessListener {
+                    val bitmap = BitmapFactory.decodeFile(localfile.absolutePath)
+                    findViewById<ImageView>(R.id.userale1).setImageBitmap(bitmap)
                 }
 
             }
