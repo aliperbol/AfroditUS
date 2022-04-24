@@ -1,10 +1,12 @@
 package com.example.tinderus
+
 import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -13,7 +15,7 @@ import com.google.firebase.ktx.Firebase
 import org.w3c.dom.Text
 import java.util.*
 
-class ListOfChatsActivity : AppCompatActivity() {
+class ListOfChats : AppCompatActivity() {
 
     /////////////////////
     //    Variables    //
@@ -29,10 +31,12 @@ class ListOfChatsActivity : AppCompatActivity() {
     //    Funciones    //
     /////////////////////
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         //Al cargar la actividad ponemos el layout de la lista de chats
+        Toast.makeText(this, "set content view", Toast.LENGTH_SHORT).show()
+
         setContentView(R.layout.activity_list_of_chats)
 
         //Actualizamos las variables
@@ -41,14 +45,13 @@ class ListOfChatsActivity : AppCompatActivity() {
         listChatsRecyclerView = findViewById<RecyclerView>(R.id.listChatsRecyclerView)
 
         //Obtenemos el nombre de usuario de la vista anterior
-        intent.getStringExtra("usuario")?.let{
-            usuario = it
-        }
+
+        val bundle = intent.extras
+        usuario = bundle?.getString("usuario") ?: ""
 
         //Comprobamos si este valor es nulo. En caso negativo ejecutamos
-        println("Antes de iniciar la comprobación de usuario")
-        if(usuario.isNotEmpty()){
-            println("Antes de iniciar la vista")
+        if(usuario != ""){
+            Toast.makeText(this, "Antes de iniciar la vista", Toast.LENGTH_SHORT).show()
             initViews()
         }
     }
@@ -115,8 +118,8 @@ class ListOfChatsActivity : AppCompatActivity() {
 
         //Ahora debemos incluir este chat en la database del usuario que lo inicia y del que lo recibe
         db.collection("chats").document(chatId).set(chat)
-        db.collection("Usuarios").document(usuario).collection("chats").document(chatId).set(chatId)
-        db.collection("Usuarios").document(usuarioReceptor).collection("chats").document(chatId).set(chatId)
+        db.collection("Usuarios").document(usuario).collection("chats").document(chatId).set(chat)
+        db.collection("Usuarios").document(usuarioReceptor).collection("chats").document(chatId).set(chat)
 
         //Enviamos a la siguiente pantalla el usuario y el chatId
         val intent = Intent(this,ChatActivity::class.java)

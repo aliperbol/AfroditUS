@@ -17,7 +17,7 @@
         <activity android:name=".Intereses" />
         <activity android:name=".MenuPrincipal" />
         <activity android:name=".ChatActivity" />
-        <activity android:name=".ListOfChatsActivity" />
+        <activity android:name=".ListOfChats" />
 
 
         <activity
