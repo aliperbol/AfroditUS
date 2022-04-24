@@ -18,9 +18,9 @@ class ChatActivity: AppCompatActivity() {
 
     private var chatId = ""
     private var usuario = ""
-    private var botonEnviarMensaje = findViewById<Button>(R.id.sendMessageButton)
-    private var mensajeAEnviar = findViewById<TextView>(R.id.messageTextField)
-    private var messagesRecyclerView = findViewById<RecyclerView>(R.id.messagesRecylerView)
+    private lateinit var botonEnviarMensaje: Button
+    private lateinit var mensajeAEnviar: TextView
+    private lateinit var messagesRecyclerView:RecyclerView
 
     private var db = Firebase.firestore
 
@@ -35,6 +35,11 @@ class ChatActivity: AppCompatActivity() {
         //Tomamos los datos provinentes de las vista anterior
         intent.getStringExtra("chatId")?.let{chatId = it}
         intent.getStringExtra("usuario")?.let{usuario = it}
+
+        //Inicializamos las variables
+        botonEnviarMensaje = findViewById<Button>(R.id.sendMessageButton)
+        mensajeAEnviar = findViewById<TextView>(R.id.messageTextField)
+        messagesRecyclerView = findViewById<RecyclerView>(R.id.messagesRecylerView)
 
         //Comprobamos que estos datos no están vacíos
         if(chatId.isNotEmpty() && usuario.isNotEmpty()){
