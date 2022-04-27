@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/imagenperfil"
+        android:id="@+id/imagenPerfil"
         android:layout_width="170dp"
         android:layout_height="200dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,7 +25,7 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imagenperfil" />
+        app:layout_constraintTop_toBottomOf="@+id/imagenPerfil" />
 
     <EditText
         android:id="@+id/IdDescripcion"

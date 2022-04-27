@@ -1,18 +1,42 @@
 package com.example.tinderus
 
 import android.content.Intent
+import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.TextView
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.ktx.database
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
+import java.io.File
 
 class Perfil_propio  : AppCompatActivity() {
+
+    /////////////////////
+    //    Variables    //
+    /////////////////////
+
     private val auth = Firebase.auth
+    private lateinit var  imagenPerfil:ImageView
+    private lateinit var descripcionPerfil:TextView
+    private lateinit var interesesPerfil:TextView
+
+    /////////////////////
+    //    Funciones    //
+    /////////////////////
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.perfilpropio)
+
+        //Inicializamos variables
+        imagenPerfil = findViewById<ImageView>(R.id.imagenPerfil)
+        descripcionPerfil = findViewById<TextView>(R.id.descripcionPerfil)
+        interesesPerfil = findViewById<TextView>(R.id.interesesPerfil)
 
         //Al iniciar la app, estableceremos que los botones de la barra de menu principal tengan
         //un onclick preestablecido
@@ -23,8 +47,6 @@ class Perfil_propio  : AppCompatActivity() {
             val intent = Intent(this,ListOfChats::class.java)
             intent.putExtra("usuario", auth.currentUser?.uid)
             startActivity(intent)
-
-
         }
 
         val initButton = findViewById<ImageView>(R.id.imgInicio)
@@ -39,10 +61,10 @@ class Perfil_propio  : AppCompatActivity() {
             startActivity(intent)
         }
 
+        //Además añadimos dos botones, uno para cerrar sesión y otro para editar el perfil del usuario
         val buttonClick = findViewById<Button>(R.id.cerrarsesion)
         buttonClick.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+            auth.signOut() //Cerramos sesión
         }
         val buttonClick2 = findViewById<Button>(R.id.editarperfil)
         buttonClick2.setOnClickListener {
@@ -50,8 +72,35 @@ class Perfil_propio  : AppCompatActivity() {
             startActivity(intent)
         }
 
+        // Una vez se implementan los listener en los botones, debemos incluir la imagen y la descripción
+        // del usuario que ha iniciado sesión
 
+        //Obtenemos la imagen de storage de firebase y la ponemos en el perfil del usuario
 
+        val localfile = File.createTempFile("tempImage", "jpj")
+        var imagen:String = auth.currentUser?.photoUrl.toString()
+        FirebaseStorage.getInstance().getReferenceFromUrl(imagen ?: "").getFile(localfile).addOnSuccessListener {
+            val bitmap = BitmapFactory.decodeFile(localfile.absolutePath)
+            imagenPerfil.setImageBitmap(bitmap)
+        }
 
+        //Obtenemos la descripción y los gustos del usuario y la incluimos en el perfil
+        Firebase.database.reference.child("Usuarios").child("${auth.currentUser?.uid}").get().addOnSuccessListener {
+            //Colocamos la descripción del usuario
+            descripcionPerfil.text = it.child("descripcion").getValue().toString()
+
+            //Recorremos sus intereses y los incluimos a modo de texto
+            var intereses:List<String> = it.child("intereses").getValue() as List<String>
+            var interesesEnTexto: String = ""
+            for(interes in intereses){
+                if (intereses.indexOf(interes) == (intereses.size -1)){
+                    interesesEnTexto.plus(interes)
+                }
+                else{
+                    interesesEnTexto.plus(interes+ ", ")
+                }
+            }
+            interesesPerfil.text = interesesEnTexto
+        }
     }
 }

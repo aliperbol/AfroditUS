@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/imagenperfil"
+        android:id="@+id/imagenPerfil"
         android:layout_width="170dp"
         android:layout_height="200dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,7 +26,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11"
+        app:layout_constraintTop_toBottomOf="@+id/interesesPerfil"
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
@@ -38,7 +38,7 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imagenperfil" />
+        app:layout_constraintTop_toBottomOf="@+id/imagenPerfil" />
 
     <TextView
         android:id="@+id/textView10"
@@ -65,11 +65,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.207"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11"
+        app:layout_constraintTop_toBottomOf="@+id/interesesPerfil"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/interesesPerfil"
         android:layout_width="280dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
@@ -81,7 +81,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/descripcionPerfil"
         android:layout_width="277dp"
         android:layout_height="47dp"
         android:layout_marginTop="20dp"
@@ -113,6 +113,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imagenperfil"
+        app:layout_constraintTop_toTopOf="@+id/imagenPerfil"
         app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
