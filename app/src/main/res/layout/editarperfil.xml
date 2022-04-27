@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/imagenperfil"
+        android:id="@+id/imagenajena"
         android:layout_width="170dp"
         android:layout_height="200dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -17,7 +17,7 @@
 
 
     <TextView
-        android:id="@+id/nombre_usuario"
+        android:id="@+id/nombreajeno"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ejemplo"
@@ -25,7 +25,7 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imagenperfil" />
+        app:layout_constraintTop_toBottomOf="@+id/imagenajena" />
 
     <EditText
         android:id="@+id/IdDescripcion"
@@ -55,7 +55,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.214"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nombre_usuario"
+        app:layout_constraintTop_toBottomOf="@+id/nombreajeno"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
