@@ -10,7 +10,7 @@
         android:layout_width="422dp"
         android:layout_height="69dp"
         android:autoText="false"
-        android:background="#118177"
+        android:background="#BD4089"
         android:text="¿Cuáles son tus intereses?"
         android:textAlignment="center"
         android:textAllCaps="false"
@@ -282,6 +282,7 @@
         android:text="Señale mínimo 3 opciones"
         android:textAlignment="center"
         android:textColor="#F9FBE7"
+        android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/cultural"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -290,9 +291,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Guardar"
+        app:cornerRadius="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="@+id/intereses"
         app:layout_constraintVertical_bias="0.942"
         tools:layout_editor_absoluteX="276dp" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
