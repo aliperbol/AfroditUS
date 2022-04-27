@@ -6,11 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ChatActivity">
 
-    <include
-        android:id="@+id/include"
-        layout="@layout/barra_menu"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="16dp" />
 
     <EditText
         android:id="@+id/newChatText"
@@ -43,20 +38,23 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.007" />
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listChatsRecyclerView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="410dp"
+        android:layout_height="604dp"
+        app:layout_constraintBottom_toBottomOf="@+id/include"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/newChatButton"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.102"
         tools:listitem="@layout/item_chat" />
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/barra_menu"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="16dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

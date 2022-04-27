@@ -73,6 +73,11 @@ class Intereses : AppCompatActivity(){
         var viajar = findViewById<CheckBox>(R.id.viajar)
         var voluntariado = findViewById<CheckBox>(R.id.voluntariado)
 
+        val volveratras = findViewById<Button>(R.id.boton_atras)
+        volveratras.setOnClickListener{
+            val intent = Intent(this, Primer_perfil::class.java)
+            startActivity(intent)
+        }
 
         val buttonClick = findViewById<Button>(R.id.siguiente)
 

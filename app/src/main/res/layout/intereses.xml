@@ -7,10 +7,10 @@
 
     <TextView
         android:id="@+id/intereses"
-        android:layout_width="392dp"
-        android:layout_height="68dp"
+        android:layout_width="433dp"
+        android:layout_height="70dp"
         android:autoText="false"
-        android:background="#118177"
+        android:background="#BD4089"
         android:text="¿Cuáles son tus intereses?"
         android:textAlignment="center"
         android:textAllCaps="false"
@@ -28,9 +28,10 @@
         android:id="@+id/siguiente"
         android:layout_width="136dp"
         android:layout_height="48dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="24dp"
         android:layout_marginBottom="16dp"
         android:text="Siguiente"
+        app:cornerRadius="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -292,7 +293,19 @@
         android:text="Señale mínimo 3 opciones"
         android:textAlignment="center"
         android:textColor="#F9FBE7"
+        android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/cultural"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/boton_atras"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="16dp"
+        app:cornerRadius="25sp"
+        android:text="atrás"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
