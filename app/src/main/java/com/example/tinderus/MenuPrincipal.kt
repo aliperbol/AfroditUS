@@ -30,9 +30,6 @@ class MenuPrincipal : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.menu_principal)
 
-
-
-
         //Al iniciar la app, estableceremos que los botones de la barra de menu principal tengan
         //un onclick preestablecido
 

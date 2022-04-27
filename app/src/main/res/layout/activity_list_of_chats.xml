@@ -2,8 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     tools:context=".ChatActivity">
 
 
@@ -41,20 +41,24 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listChatsRecyclerView"
-        android:layout_width="410dp"
-        android:layout_height="604dp"
-        app:layout_constraintBottom_toBottomOf="@+id/include"
+        android:layout_width="422dp"
+        android:layout_height="577dp"
+        android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/newChatButton"
-        app:layout_constraintVertical_bias="0.102"
-        tools:listitem="@layout/item_chat" />
+        tools:listitem="@layout/item_chat">
+
+    </androidx.recyclerview.widget.RecyclerView>
 
     <include
         android:id="@+id/include"
         layout="@layout/barra_menu"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="16dp" />
+        android:layout_width="420dp"
+        android:layout_height="712dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
