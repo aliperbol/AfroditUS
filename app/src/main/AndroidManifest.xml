@@ -22,6 +22,7 @@
         <activity android:name=".Editar_intereses" />
         <activity android:name=".EditarPerfil" />
         <activity android:name=".Perfil_propio" />
+        <activity android:name=".PerfilAjeno" />
 
 
 

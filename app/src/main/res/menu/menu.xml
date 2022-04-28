@@ -6,7 +6,7 @@
         android:id="@+id/edad"
         android:title="Edad" />
     <item
-        android:id="@+id/genero"
+        android:id="@+id/gener"
         android:title="Género" />
     <item
         android:id="@+id/inter"

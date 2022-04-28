@@ -5,11 +5,13 @@ import android.os.Bundle
 import android.os.PersistableBundle
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import org.w3c.dom.Text
@@ -26,7 +28,7 @@ class ListOfChats : AppCompatActivity() {
     private lateinit var textoChat:TextView
     private lateinit var listChatsRecyclerView:RecyclerView
     private var db = Firebase.firestore
-
+    private val auth = Firebase.auth
     /////////////////////
     //    Funciones    //
     /////////////////////
@@ -38,6 +40,31 @@ class ListOfChats : AppCompatActivity() {
         Toast.makeText(this, "set content view", Toast.LENGTH_SHORT).show()
 
         setContentView(R.layout.activity_list_of_chats)
+
+        //Al iniciar la app, estableceremos que los botones de la barra de menu principal tengan
+        //un onclick preestablecido
+
+        val chatButton = findViewById<ImageView>(R.id.imgChats)
+        chatButton.setOnClickListener{
+
+            val intent = Intent(this,ListOfChats::class.java)
+            intent.putExtra("usuario", auth.currentUser?.uid)
+            startActivity(intent)
+
+
+        }
+
+        val initButton = findViewById<ImageView>(R.id.imgInicio)
+        initButton.setOnClickListener{
+            val intent = Intent(this, MenuPrincipal::class.java)
+            startActivity(intent)
+        }
+
+        val perfilButton = findViewById<ImageView>(R.id.imgPerfil)
+        perfilButton.setOnClickListener{
+            val intent = Intent(this, Perfil_propio::class.java)
+            startActivity(intent)
+        }
 
         //Actualizamos las variables
         botonChatNuevo = findViewById<Button>(R.id.newChatButton)
