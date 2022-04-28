@@ -7,8 +7,8 @@
 
     <TextView
         android:id="@+id/intereses"
-        android:layout_width="422dp"
-        android:layout_height="69dp"
+        android:layout_width="395dp"
+        android:layout_height="71dp"
         android:autoText="false"
         android:background="#BD4089"
         android:text="¿Cuáles son tus intereses?"
@@ -19,7 +19,6 @@
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />
@@ -67,7 +66,7 @@
         android:text="Deportes"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.916"
+        app:layout_constraintHorizontal_bias="0.927"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.247" />
@@ -79,7 +78,7 @@
         android:text="Voluntariado"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.925"
+        app:layout_constraintHorizontal_bias="0.96"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.826" />
@@ -102,7 +101,7 @@
         android:text="Cocinar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.902"
+        app:layout_constraintHorizontal_bias="0.927"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.714" />
@@ -114,23 +113,22 @@
         android:text="Fotografía"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.916"
+        app:layout_constraintHorizontal_bias="0.927"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/intereses"
-        app:layout_constraintVertical_bias="0.469" />
+        app:layout_constraintVertical_bias="0.468" />
 
     <CheckBox
         android:id="@+id/pelis"
         android:layout_width="105dp"
         android:layout_height="52dp"
-        android:layout_marginTop="40dp"
         android:text="Ver películas/series"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.927"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/intereses"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.045" />
 
     <CheckBox
         android:id="@+id/juegos"
@@ -222,7 +220,7 @@
         android:text="Jugar videojuegos"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.915"
+        app:layout_constraintHorizontal_bias="0.935"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.588" />
@@ -246,10 +244,10 @@
         android:text="Ir a eventos culturales"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/music"
-        app:layout_constraintHorizontal_bias="0.457"
+        app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/intereses"
-        app:layout_constraintVertical_bias="0.049" />
+        app:layout_constraintVertical_bias="0.045" />
 
     <CheckBox
         android:id="@+id/costura"
@@ -290,12 +288,15 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="276dp"
+        android:layout_marginEnd="11dp"
         android:text="Guardar"
         app:cornerRadius="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/intereses"
-        app:layout_constraintVertical_bias="0.942"
-        tools:layout_editor_absoluteX="276dp" />
+        app:layout_constraintVertical_bias="0.942" />
 
 
 
