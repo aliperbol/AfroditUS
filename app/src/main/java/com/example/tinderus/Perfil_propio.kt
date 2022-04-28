@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ktx.database
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -78,19 +79,19 @@ class Perfil_propio  : AppCompatActivity() {
         //Obtenemos la imagen de storage de firebase y la ponemos en el perfil del usuario
 
         val localfile = File.createTempFile("tempImage", "jpj")
-        var imagen:String = auth.currentUser?.photoUrl.toString()
-        FirebaseStorage.getInstance().getReferenceFromUrl(imagen ?: "").getFile(localfile).addOnSuccessListener {
+        var urlimagen = Firebase.database.getReference("Usuarios").child(auth.currentUser.toString()).child("fotoPerfilURL")
+        FirebaseStorage.getInstance().getReferenceFromUrl(urlimagen.toString()).getFile(localfile).addOnSuccessListener {
             val bitmap = BitmapFactory.decodeFile(localfile.absolutePath)
             imagenPerfil.setImageBitmap(bitmap)
         }
 
         //Obtenemos la descripción y los gustos del usuario y la incluimos en el perfil
-        Firebase.database.reference.child("Usuarios").child("${auth.currentUser?.uid}").get().addOnSuccessListener {
+        var usuarioActual = Firebase.database.getReference("Usuarios").child(auth.currentUser?.uid.toString())
             //Colocamos la descripción del usuario
-            descripcionPerfil.text = it.child("descripcion").getValue().toString()
+            descripcionPerfil.text = usuarioActual.child("descripcion").toString()
 
             //Recorremos sus intereses y los incluimos a modo de texto
-            var intereses:List<String> = it.child("intereses").getValue() as List<String>
+            var intereses:List<String> = usuarioActual.child("intereses") as List<String>
             var interesesEnTexto: String = ""
             for(interes in intereses){
                 if (intereses.indexOf(interes) == (intereses.size -1)){
@@ -103,4 +104,3 @@ class Perfil_propio  : AppCompatActivity() {
             interesesPerfil.text = interesesEnTexto
         }
     }
-}
