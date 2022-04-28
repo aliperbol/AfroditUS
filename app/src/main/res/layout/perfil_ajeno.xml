@@ -108,4 +108,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imagenajena"
         app:layout_constraintVertical_bias="0.09" />
+
+    <Button
+        android:id="@+id/botonchat"
+        android:layout_width="120dp"
+        android:layout_height="49dp"
+        android:text="Chat"
+        app:cornerRadius="25sp"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descripcionajena"
+        app:layout_constraintVertical_bias="0.375" />
 </androidx.constraintlayout.widget.ConstraintLayout>

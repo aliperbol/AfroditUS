@@ -42,7 +42,7 @@ class Perfil_propio  : AppCompatActivity() {
         imagenPerfil = findViewById<ImageView>(R.id.imagenajena)
         descripcionPerfil = findViewById<TextView>(R.id.descripcionajena)
         interesesPerfil = findViewById<TextView>(R.id.interesesajenos)
-        nombrePerfil = findViewById<TextView>(R.id.nombreajeno)
+
 
         //Al iniciar la app, estableceremos que los botones de la barra de menu principal tengan
         //un onclick preestablecido
@@ -100,7 +100,7 @@ class Perfil_propio  : AppCompatActivity() {
                     val imagen = dataSnapshot.child("fotoPerfilURL").getValue(String::class.java)?:""
                     var intereses = ArrayList<String>()
                     Log.d("FragmentActivity", "Error: $imagen")
-
+                    title=nombre
 
                     for (i in dataSnapshot.child("intereses").children){
                         intereses.add(i.getValue(String::class.java)?:"")
@@ -136,7 +136,7 @@ class Perfil_propio  : AppCompatActivity() {
                     interesesPerfil.text = interesesEnTexto
 
                     //Cambiamos el nombre del perfil
-                    nombrePerfil.text = nombre
+                    //nombrePerfil.text = nombre
         }
 
         override fun onCancelled(databaseError: DatabaseError) {

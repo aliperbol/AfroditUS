@@ -43,7 +43,7 @@ class ListOfChats : AppCompatActivity() {
 
         //Al iniciar la app, estableceremos que los botones de la barra de menu principal tengan
         //un onclick preestablecido
-
+        title="Chats"
         val chatButton = findViewById<ImageView>(R.id.imgChats)
         chatButton.setOnClickListener{
 
