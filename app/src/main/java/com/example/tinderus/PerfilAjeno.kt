@@ -20,23 +20,25 @@ class PerfilAjeno : AppCompatActivity(){
         setContentView(R.layout.perfil_ajeno)
 
         val bundle = intent.extras
+
         //Tomamos el nombre de usuario del registro
         val nombre = bundle?.getString("nombre") ?: ""
         val descripcion = bundle?.getString("descripcion")?: ""
+        val edad= bundle?.getString("edad")?: ""
         val intereses = bundle?.getString("intereses")?: ""
         val fotoPerfil = bundle?.getString("fotoPerfil")?: ""
+        title=nombre
 
-        val nombreVista = findViewById<TextView>(R.id.nombreajeno)
         val descripcionVista = findViewById<TextView>(R.id.descripcionajena)
         val fotoPerfilVista = findViewById<ImageView>(R.id.imagenajena)
-
+        val edadVista=findViewById<TextView>(R.id.edadajena)
         val localfile = File.createTempFile("tempImage", "jpg")
 
         FirebaseStorage.getInstance().getReferenceFromUrl(fotoPerfil).getFile(localfile).addOnSuccessListener {
             val bitmap = BitmapFactory.decodeFile(localfile.absolutePath)
             fotoPerfilVista.setImageBitmap(bitmap)
         }
-        nombreVista.text = nombre
+        edadVista.text =edad
         descripcionVista.text =descripcion
 
 

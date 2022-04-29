@@ -233,17 +233,17 @@ android:layout_height="match_parent">
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintVertical_bias="0.596" />
 
-<CheckBox
-    android:id="@+id/cultural"
-    android:layout_width="105dp"
-    android:layout_height="52dp"
-    android:text="Ir a eventos culturales"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toStartOf="@+id/music"
-    app:layout_constraintHorizontal_bias="0.458"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/intereses"
-    app:layout_constraintVertical_bias="0.145" />
+    <CheckBox
+        android:id="@+id/cultural"
+        android:layout_width="105dp"
+        android:layout_height="52dp"
+        android:text="Ir a eventos culturales"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/music"
+        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/intereses"
+        app:layout_constraintVertical_bias="0.145" />
 
 <CheckBox
     android:id="@+id/jardineria"

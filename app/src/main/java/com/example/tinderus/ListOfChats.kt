@@ -36,14 +36,11 @@ class ListOfChats : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        //Al cargar la actividad ponemos el layout de la lista de chats
-        Toast.makeText(this, "set content view", Toast.LENGTH_SHORT).show()
-
         setContentView(R.layout.activity_list_of_chats)
 
         //Al iniciar la app, estableceremos que los botones de la barra de menu principal tengan
         //un onclick preestablecido
-
+        title="Chats"
         val chatButton = findViewById<ImageView>(R.id.imgChats)
         chatButton.setOnClickListener{
 
@@ -76,9 +73,10 @@ class ListOfChats : AppCompatActivity() {
         val bundle = intent.extras
         usuario = bundle?.getString("usuario") ?: ""
 
+
         //Comprobamos si este valor es nulo. En caso negativo ejecutamos
         if(usuario != ""){
-            Toast.makeText(this, "Antes de iniciar la vista", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(this, "Antes de iniciar la vista", Toast.LENGTH_SHORT).show()
             initViews()
         }
     }

@@ -133,7 +133,6 @@ class MenuPrincipal : AppCompatActivity() {
         }
 
         builder.show()
-
     }
 
     //ventana flotante intereses
@@ -170,9 +169,6 @@ class MenuPrincipal : AppCompatActivity() {
         builder.show()
 
     }
-
-
-
 
 
     private fun mostrar_usuarios(){
@@ -296,8 +292,6 @@ class MenuPrincipal : AppCompatActivity() {
 
 
                 //De esta forma conseguimos accedemos a nuestro recycledView para mostrar usuarios como grid
-
-
 
 
             }
