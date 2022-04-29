@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.appcompat.view.menu.ActionMenuItemView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
@@ -26,7 +27,7 @@ class ChatAdapter(val chatClick: (Chat) -> Unit): RecyclerView.Adapter<ChatAdapt
     /////////////////////
 
     var chats: List<Chat> = emptyList()
-
+    private val auth = Firebase.auth
     /////////////////////
     //    Funciones    //
     /////////////////////
@@ -49,7 +50,9 @@ class ChatAdapter(val chatClick: (Chat) -> Unit): RecyclerView.Adapter<ChatAdapt
     override fun onBindViewHolder(holder: ChatViewHolder, position:Int){
 
         //holder.itemView.findViewById<TextView>(R.id.chatNameText).text = chats[position].nombre
-        if(chats[position].nombre == chats[position].usuarios[1]) {
+
+        if(auth.currentUser?.uid.toString() == chats[position].nombre) {
+            //if(chats[position].nombre == chats[position].usuarios[1]) {
             mostrar_usuarios(chats[position].usuarios[0], holder)
             //holder.itemView.findViewById<TextView>(R.id.usersTextView).text = chats[position].usuarios.toString()
 
@@ -57,6 +60,15 @@ class ChatAdapter(val chatClick: (Chat) -> Unit): RecyclerView.Adapter<ChatAdapt
                 chatClick(chats[position])
             }
         }
+        else{
+            mostrar_usuarios(chats[position].usuarios[1], holder)
+            //holder.itemView.findViewById<TextView>(R.id.usersTextView).text = chats[position].usuarios.toString()
+
+            holder.itemView.setOnClickListener {
+                chatClick(chats[position])
+            }
+        }
+
 
     }
 
