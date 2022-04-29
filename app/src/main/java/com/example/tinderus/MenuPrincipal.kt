@@ -190,7 +190,8 @@ class MenuPrincipal : AppCompatActivity() {
                     var intereses = ArrayList<String>()
 
                     for (i in ds.child("intereses").children){
-                        intereses.add(i.toString())
+                        intereses.add(i.getValue(String::class.java).toString())
+
                     }
                     //val intereses = ds.child("intereses").getValue(ArrayList::class.java) ?: ArrayList<String>()
 

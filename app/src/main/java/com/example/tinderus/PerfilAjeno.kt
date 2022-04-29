@@ -3,11 +3,13 @@ package com.example.tinderus
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.*
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import java.io.File
@@ -25,7 +27,7 @@ class PerfilAjeno : AppCompatActivity(){
         val nombre = bundle?.getString("nombre") ?: ""
         val descripcion = bundle?.getString("descripcion")?: ""
         val edad= bundle?.getString("edad")?: ""
-        val intereses = bundle?.getString("intereses")?: ""
+        val intereses = bundle?.getStringArrayList("intereses")?: ArrayList()
         val fotoPerfil = bundle?.getString("fotoPerfil")?: ""
         title=nombre
 
@@ -33,7 +35,7 @@ class PerfilAjeno : AppCompatActivity(){
         val fotoPerfilVista = findViewById<ImageView>(R.id.imagenajena)
         val edadVista=findViewById<TextView>(R.id.edadajena)
         val localfile = File.createTempFile("tempImage", "jpg")
-
+        val interesesPerfil = findViewById<TextView>(R.id.interesesajenos)
         FirebaseStorage.getInstance().getReferenceFromUrl(fotoPerfil).getFile(localfile).addOnSuccessListener {
             val bitmap = BitmapFactory.decodeFile(localfile.absolutePath)
             fotoPerfilVista.setImageBitmap(bitmap)
@@ -71,7 +73,16 @@ class PerfilAjeno : AppCompatActivity(){
             startActivity(intent)
         }
 
-
+        var interesesEnTexto: String = ""
+        for(interes in intereses){
+            if (intereses.indexOf(interes) == (intereses.size -1)){
+                interesesEnTexto += interes
+            }
+            else{
+                interesesEnTexto += interes+ ", "
+            }
+        }
+        interesesPerfil.text = interesesEnTexto
 
 
 
