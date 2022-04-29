@@ -184,107 +184,102 @@ class MenuPrincipal : AppCompatActivity() {
                 for (ds in dataSnapshot.children) {
                     val uid = ds.child("uid").getValue(String::class.java) ?: ""
 
-<<<<<<< HEAD
-                    for (i in ds.child("intereses").children){
-                        intereses.add(i.getValue(String::class.java).toString())
-=======
                     if(uid== auth.currentUser?.uid.toString()){
                         val preferencia = ds.child("preferencia").getValue(String::class.java) ?: ""
                         val genero = ds.child("genero").getValue(String::class.java) ?: ""
                         preferenciaUsuarioActual = preferencia
                         generoUsuarioActual = genero
->>>>>>> 489f196a79882ca0b3f2ea26ba2f1a262c027dde
 
                     }
 
                 }
-                   for (ds in dataSnapshot.children) {
+                for (ds in dataSnapshot.children) {
 
-                       val uid = ds.child("uid").getValue(String::class.java) ?: ""
-                       if (uid != auth.currentUser?.uid.toString()) {
-                           //para que no salga nuestro propio perfil en el menu principal
+                    val uid = ds.child("uid").getValue(String::class.java) ?: ""
+                    if (uid != auth.currentUser?.uid.toString()) {
+                        //para que no salga nuestro propio perfil en el menu principal
 
-                           val nombre = ds.child("nombre").getValue(String::class.java) ?: ""
-                           val edad = ds.child("edad").getValue(String::class.java) ?: ""
-                           val descripcion =
-                               ds.child("descripcion").getValue(String::class.java) ?: ""
-                           val preferencia =
-                               ds.child("preferencia").getValue(String::class.java) ?: ""
-                           val genero = ds.child("genero").getValue(String::class.java) ?: ""
+                        val nombre = ds.child("nombre").getValue(String::class.java) ?: ""
+                        val edad = ds.child("edad").getValue(String::class.java) ?: ""
+                        val descripcion =
+                            ds.child("descripcion").getValue(String::class.java) ?: ""
+                        val preferencia =
+                            ds.child("preferencia").getValue(String::class.java) ?: ""
+                        val genero = ds.child("genero").getValue(String::class.java) ?: ""
 
-                           val imagen = ds.child("fotoPerfilURL").getValue(String::class.java) ?: ""
-                           var intereses = ArrayList<String>()
+                        val imagen = ds.child("fotoPerfilURL").getValue(String::class.java) ?: ""
+                        var intereses = ArrayList<String>()
 
-                           for (i in ds.child("intereses").children) {
-                               intereses.add(i.getValue().toString())
-                           }
+                        for (i in ds.child("intereses").children) {
+                            intereses.add(i.getValue().toString())
+                        }
 
 
-                           //Filtramos los usuarios que aparecen en funcion de la preferencia sexual
+                        //Filtramos los usuarios que aparecen en funcion de la preferencia sexual
 
-                           if (preferenciaUsuarioActual == "Hombres" && genero == "Hombre" && (preferencia=="Hombres" || preferencia == "No me importa") && generoUsuarioActual=="Hombre") {
+                        if (preferenciaUsuarioActual == "Hombres" && genero == "Hombre" && (preferencia=="Hombres" || preferencia == "No me importa") && generoUsuarioActual=="Hombre") {
 
-                               usuarios.add(
-                                   Usuario(
-                                       nombre,
-                                       edad,
-                                       descripcion,
-                                       preferencia,
-                                       genero,
-                                       uid,
-                                       imagen,
-                                       intereses
-                                   )
-                               )
-                           }
-                           if (preferenciaUsuarioActual == "Mujeres" && genero == "Mujer" && (preferencia=="Hombres" || preferencia == "No me importa") && generoUsuarioActual=="Hombre") {
-                               usuarios.add(
-                                   Usuario(
-                                       nombre,
-                                       edad,
-                                       descripcion,
-                                       preferencia,
-                                       genero,
-                                       uid,
-                                       imagen,
-                                       intereses
-                                   )
-                               )
-                           }
+                            usuarios.add(
+                                Usuario(
+                                    nombre,
+                                    edad,
+                                    descripcion,
+                                    preferencia,
+                                    genero,
+                                    uid,
+                                    imagen,
+                                    intereses
+                                )
+                            )
+                        }
+                        if (preferenciaUsuarioActual == "Mujeres" && genero == "Mujer" && (preferencia=="Hombres" || preferencia == "No me importa") && generoUsuarioActual=="Hombre") {
+                            usuarios.add(
+                                Usuario(
+                                    nombre,
+                                    edad,
+                                    descripcion,
+                                    preferencia,
+                                    genero,
+                                    uid,
+                                    imagen,
+                                    intereses
+                                )
+                            )
+                        }
 
-                           if (preferenciaUsuarioActual == "Mujeres" && genero == "Mujer" && (preferencia=="Mujeres" || preferencia == "No me importa") && generoUsuarioActual=="Mujer") {
+                        if (preferenciaUsuarioActual == "Mujeres" && genero == "Mujer" && (preferencia=="Mujeres" || preferencia == "No me importa") && generoUsuarioActual=="Mujer") {
 
-                               usuarios.add(
-                                   Usuario(
-                                       nombre,
-                                       edad,
-                                       descripcion,
-                                       preferencia,
-                                       genero,
-                                       uid,
-                                       imagen,
-                                       intereses
-                                   )
-                               )
-                           }
+                            usuarios.add(
+                                Usuario(
+                                    nombre,
+                                    edad,
+                                    descripcion,
+                                    preferencia,
+                                    genero,
+                                    uid,
+                                    imagen,
+                                    intereses
+                                )
+                            )
+                        }
 
-                           if (preferenciaUsuarioActual == "Hombres" && genero == "Hombre" && (preferencia=="Mujeres" || preferencia == "No me importa") && generoUsuarioActual=="Mujer") {
+                        if (preferenciaUsuarioActual == "Hombres" && genero == "Hombre" && (preferencia=="Mujeres" || preferencia == "No me importa") && generoUsuarioActual=="Mujer") {
 
-                               usuarios.add(
-                                   Usuario(
-                                       nombre,
-                                       edad,
-                                       descripcion,
-                                       preferencia,
-                                       genero,
-                                       uid,
-                                       imagen,
-                                       intereses
-                                   )
-                               )
-                           }
-                       }
-                   }
+                            usuarios.add(
+                                Usuario(
+                                    nombre,
+                                    edad,
+                                    descripcion,
+                                    preferencia,
+                                    genero,
+                                    uid,
+                                    imagen,
+                                    intereses
+                                )
+                            )
+                        }
+                    }
+                }
 
                 val gridLayout = GridLayoutManager(this@MenuPrincipal, 3)
 
