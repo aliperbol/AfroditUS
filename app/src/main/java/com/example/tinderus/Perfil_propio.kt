@@ -53,6 +53,8 @@ class Perfil_propio  : AppCompatActivity() {
             val intent = Intent(this,ListOfChats::class.java)
             intent.putExtra("usuario", auth.currentUser?.uid)
             startActivity(intent)
+
+
         }
 
         val initButton = findViewById<ImageView>(R.id.imgInicio)
@@ -72,6 +74,8 @@ class Perfil_propio  : AppCompatActivity() {
         buttonClick.setOnClickListener {
             auth.signOut() //Cerramos sesión
         }
+
+        //editar perfil
         val buttonClick2 = findViewById<Button>(R.id.editarperfil)
         buttonClick2.setOnClickListener {
             val intent = Intent(this, EditarPerfil::class.java)

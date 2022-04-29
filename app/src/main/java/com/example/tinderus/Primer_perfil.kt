@@ -20,8 +20,7 @@ import java.util.regex.Pattern
 
 
 class Primer_perfil:AppCompatActivity() {
-
-
+    var username = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -30,7 +29,7 @@ class Primer_perfil:AppCompatActivity() {
         //Recogemos los datos enviados en la actividad anterior
         val bundle = intent.extras
         //Tomamos el nombre de usuario del registro
-        val username = bundle?.getString("username")
+        username = bundle?.getString("username") ?: ""
         findViewById<TextView>(R.id.nombreUsuario).text = "¡Hola, " +  username + "!"
 
         //Seleccionar tu genero
@@ -107,7 +106,7 @@ class Primer_perfil:AppCompatActivity() {
                 }else{
                     putExtra("urlImagen", imagenURL)
                     putExtra("fecha", fechaNacimiento)
-                    putExtra("nombre", nombre)
+                    putExtra("nombre", username)
                     putExtra("descripcion", descripcion)
                     putExtra("genero", genero)
                     putExtra("preferencia", preferencia)
