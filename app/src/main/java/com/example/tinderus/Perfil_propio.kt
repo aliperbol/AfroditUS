@@ -70,16 +70,16 @@ class Perfil_propio  : AppCompatActivity() {
         }
 
         //Además añadimos dos botones, uno para cerrar sesión y otro para editar el perfil del usuario
-        val buttonClick = findViewById<Button>(R.id.cerrarsesion)
-        buttonClick.setOnClickListener {
+        val cerrarSesion = findViewById<Button>(R.id.cerrarsesion)
+        cerrarSesion.setOnClickListener {
             auth.signOut() //Cerramos sesión
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
 
         //editar perfil
-        val buttonClick2 = findViewById<Button>(R.id.editarperfil)
-        buttonClick2.setOnClickListener {
+        val editPerfil = findViewById<Button>(R.id.editarperfil)
+        editPerfil.setOnClickListener {
             val intent = Intent(this, EditarPerfil::class.java)
             startActivity(intent)
         }
