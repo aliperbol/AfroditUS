@@ -10,13 +10,16 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import java.io.File
 import java.util.*
+import kotlin.collections.ArrayList
 
 class PerfilAjeno : AppCompatActivity(){
     private val auth = Firebase.auth
+    private var db = Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +33,8 @@ class PerfilAjeno : AppCompatActivity(){
         val edad= bundle?.getString("edad")?: ""
         val intereses = bundle?.getStringArrayList("intereses")?: ArrayList()
         val fotoPerfil = bundle?.getString("fotoPerfil")?: ""
+        val uidAjeno = bundle?.getString("uid")?: ""
+        val uidPropio = auth.currentUser?.uid ?:""
         title=nombre
 
         val descripcionVista = findViewById<TextView>(R.id.descripcionajena)
@@ -45,12 +50,28 @@ class PerfilAjeno : AppCompatActivity(){
         descripcionVista.text =descripcion
 
 
+        val refUsuarios = db.collection("Usuarios").document(uidPropio)
+
         val haciaChat = findViewById<Button>(R.id.botonchat)
         haciaChat.setOnClickListener{
+            refUsuarios.collection("chats").get().addOnSuccessListener { chats ->
+                var existeChat = false
+                for (chat in chats){
+                    val usuarioEnChat : ArrayList<String> = chat.get("usuarios") as ArrayList<String>
+                    if(usuarioEnChat.contains(uidAjeno) && usuarioEnChat.contains(uidPropio) ){
+                        val intent = Intent(this, ChatActivity::class.java)
+                        intent.putExtra("chatId",chat.id)
+                        intent.putExtra("usuario",uidAjeno)
+                        startActivity(intent)
+                        existeChat=true
+                    }
+                }
+                if(!existeChat){
+                    newChat(uidAjeno, uidPropio)
+                }
 
-            val intent = Intent(this,ListOfChats::class.java)
-            intent.putExtra("usuario", auth.currentUser?.uid)
-            startActivity(intent)
+            }
+
 
 
         }
@@ -99,32 +120,30 @@ class PerfilAjeno : AppCompatActivity(){
 
     }
 
-   /* private fun newChat(){
+    private fun newChat(uidAjeno : String, uidPropio : String){
         //Generamos el uid del chat de manera aleatoria para identificarlo
         val chatId = UUID.randomUUID().toString()
 
-        //Además debemos tener en cuenta el otro usuario al que va dirigido el chat
-        val usuarioReceptor = textoChat.text.toString()
 
         //Creamos una lista con los usuarios que intervienen en el chat
-        val usuariosChat = listOf(usuario,usuarioReceptor)
+        val usuariosChat = listOf(uidPropio,uidAjeno)
 
         //Creamos el chat en cuestión
         val chat = Chat(
             id = chatId,
-            nombre = "$usuarioReceptor",
+            nombre = uidAjeno,
             usuarios = usuariosChat
         )
 
         //Ahora debemos incluir este chat en la database del usuario que lo inicia y del que lo recibe
         db.collection("chats").document(chatId).set(chat)
-        db.collection("Usuarios").document(usuario).collection("chats").document(chatId).set(chat)
-        db.collection("Usuarios").document(usuarioReceptor).collection("chats").document(chatId).set(chat)
+        db.collection("Usuarios").document(uidPropio).collection("chats").document(chatId).set(chat)
+        db.collection("Usuarios").document(uidAjeno).collection("chats").document(chatId).set(chat)
 
         //Enviamos a la siguiente pantalla el usuario y el chatId
         val intent = Intent(this,ChatActivity::class.java)
         intent.putExtra("chatId", chatId)
-        intent.putExtra("usuario",usuario)
+        intent.putExtra("usuario",uidPropio)
         startActivity(intent)
-    }*/
+    }
 }
