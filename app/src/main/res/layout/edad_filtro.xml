@@ -24,11 +24,10 @@
 
         <EditText
             android:id="@+id/edMin"
-            android:layout_width="227dp"
-            android:layout_height="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="edad mínima"
-            android:inputType="textPersonName" />
+            android:inputType="number" />
 
         <TextView
             android:id="@+id/textView12"
@@ -43,8 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="edad máxima"
-            android:inputType="textPersonName"
-            android:minHeight="48dp" />
+            android:inputType="number" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
