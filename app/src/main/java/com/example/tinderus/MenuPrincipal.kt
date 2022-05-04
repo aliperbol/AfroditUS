@@ -396,6 +396,7 @@ class MenuPrincipal : AppCompatActivity() {
         intent.putExtra("genero",usuario.genero)
         intent.putExtra("preferencia",usuario.preferencia)
         intent.putExtra("intereses",usuario.intereses)
+        intent.putExtra("uid", usuario.uid)
         startActivity(intent)
     }
 
