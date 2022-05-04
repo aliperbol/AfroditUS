@@ -279,6 +279,87 @@ class MenuPrincipal : AppCompatActivity() {
                                 )
                             )
                         }
+                        if (preferenciaUsuarioActual == "No me importa"  && (preferencia=="Hombres" || preferencia == "No me importa") && generoUsuarioActual=="Hombre") {
+
+                            usuarios.add(
+                                Usuario(
+                                    nombre,
+                                    edad,
+                                    descripcion,
+                                    preferencia,
+                                    genero,
+                                    uid,
+                                    imagen,
+                                    intereses
+                                )
+                            )
+                        }
+
+                        if (preferenciaUsuarioActual == "No me importa"  && (preferencia=="Mujeres" || preferencia == "No me importa") && generoUsuarioActual=="Mujer") {
+
+                            usuarios.add(
+                                Usuario(
+                                    nombre,
+                                    edad,
+                                    descripcion,
+                                    preferencia,
+                                    genero,
+                                    uid,
+                                    imagen,
+                                    intereses
+                                )
+                            )
+                        }
+
+                        if (preferenciaUsuarioActual == "No me importa"  && preferencia == "No me importa" && generoUsuarioActual=="Otro") {
+
+                            usuarios.add(
+                                Usuario(
+                                    nombre,
+                                    edad,
+                                    descripcion,
+                                    preferencia,
+                                    genero,
+                                    uid,
+                                    imagen,
+                                    intereses
+                                )
+                            )
+                        }
+
+                        if (preferenciaUsuarioActual == "Mujeres" && genero == "Mujer"  && preferencia == "No me importa" && generoUsuarioActual=="Otro") {
+
+                            usuarios.add(
+                                Usuario(
+                                    nombre,
+                                    edad,
+                                    descripcion,
+                                    preferencia,
+                                    genero,
+                                    uid,
+                                    imagen,
+                                    intereses
+                                )
+                            )
+                        }
+
+                        if (preferenciaUsuarioActual == "Hombres" && genero == "Hombre"  && preferencia == "No me importa" && generoUsuarioActual=="Otro") {
+
+                            usuarios.add(
+                                Usuario(
+                                    nombre,
+                                    edad,
+                                    descripcion,
+                                    preferencia,
+                                    genero,
+                                    uid,
+                                    imagen,
+                                    intereses
+                                )
+                            )
+                        }
+
+
                     }
                 }
 
