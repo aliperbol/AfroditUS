@@ -11,6 +11,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import java.io.File
+import java.util.*
 
 class PerfilAjeno : AppCompatActivity(){
     private val auth = Firebase.auth
@@ -42,7 +43,15 @@ class PerfilAjeno : AppCompatActivity(){
         descripcionVista.text =descripcion
 
 
+        val haciaChat = findViewById<Button>(R.id.botonchat)
+        haciaChat.setOnClickListener{
 
+            val intent = Intent(this,ListOfChats::class.java)
+            intent.putExtra("usuario", auth.currentUser?.uid)
+            startActivity(intent)
+
+
+        }
 
 
 
@@ -71,9 +80,34 @@ class PerfilAjeno : AppCompatActivity(){
             startActivity(intent)
         }
 
-
-
-
-
     }
+
+   /* private fun newChat(){
+        //Generamos el uid del chat de manera aleatoria para identificarlo
+        val chatId = UUID.randomUUID().toString()
+
+        //Además debemos tener en cuenta el otro usuario al que va dirigido el chat
+        val usuarioReceptor = textoChat.text.toString()
+
+        //Creamos una lista con los usuarios que intervienen en el chat
+        val usuariosChat = listOf(usuario,usuarioReceptor)
+
+        //Creamos el chat en cuestión
+        val chat = Chat(
+            id = chatId,
+            nombre = "$usuarioReceptor",
+            usuarios = usuariosChat
+        )
+
+        //Ahora debemos incluir este chat en la database del usuario que lo inicia y del que lo recibe
+        db.collection("chats").document(chatId).set(chat)
+        db.collection("Usuarios").document(usuario).collection("chats").document(chatId).set(chat)
+        db.collection("Usuarios").document(usuarioReceptor).collection("chats").document(chatId).set(chat)
+
+        //Enviamos a la siguiente pantalla el usuario y el chatId
+        val intent = Intent(this,ChatActivity::class.java)
+        intent.putExtra("chatId", chatId)
+        intent.putExtra("usuario",usuario)
+        startActivity(intent)
+    }*/
 }
