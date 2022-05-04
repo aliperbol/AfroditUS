@@ -82,8 +82,7 @@ class PerfilAjeno : AppCompatActivity(){
             startActivity(intent)
         }
 
-<<<<<<< HEAD
-=======
+
         var interesesEnTexto: String = ""
         for(interes in intereses){
             if (intereses.indexOf(interes) == (intereses.size -1)){
@@ -97,7 +96,7 @@ class PerfilAjeno : AppCompatActivity(){
 
 
 
->>>>>>> 3889ea1062d01abd39f95c64713229770d1025e4
+
     }
 
    /* private fun newChat(){

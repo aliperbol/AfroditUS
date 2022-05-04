@@ -193,127 +193,7 @@ class MenuPrincipal : AppCompatActivity() {
                     }
 
                 }
-<<<<<<< HEAD
-                   for (ds in dataSnapshot.children) {
 
-                       val uid = ds.child("uid").getValue(String::class.java) ?: ""
-                       if (uid != auth.currentUser?.uid.toString()) {
-                           //para que no salga nuestro propio perfil en el menu principal
-
-                           val nombre = ds.child("nombre").getValue(String::class.java) ?: ""
-                           val edad = ds.child("edad").getValue(String::class.java) ?: ""
-                           val descripcion =
-                               ds.child("descripcion").getValue(String::class.java) ?: ""
-                           val preferencia =
-                               ds.child("preferencia").getValue(String::class.java) ?: ""
-                           val genero = ds.child("genero").getValue(String::class.java) ?: ""
-
-                           val imagen = ds.child("fotoPerfilURL").getValue(String::class.java) ?: ""
-                           var intereses = ArrayList<String>()
-
-                           for (i in ds.child("intereses").children) {
-                               intereses.add(i.getValue().toString())
-                           }
-
-
-                           //Filtramos los usuarios que aparecen en funcion de la preferencia sexual
-
-                           if (preferenciaUsuarioActual == "Hombres" && genero == "Hombre" && (preferencia=="Hombres" || preferencia == "No me importa") && generoUsuarioActual=="Hombre") {
-
-                               usuarios.add(
-                                   Usuario(
-                                       nombre,
-                                       edad,
-                                       descripcion,
-                                       preferencia,
-                                       genero,
-                                       uid,
-                                       imagen,
-                                       intereses
-                                   )
-                               )
-                           }
-                           if (preferenciaUsuarioActual == "Mujeres" && genero == "Mujer" && (preferencia=="Hombres" || preferencia == "No me importa") && generoUsuarioActual=="Hombre") {
-                               usuarios.add(
-                                   Usuario(
-                                       nombre,
-                                       edad,
-                                       descripcion,
-                                       preferencia,
-                                       genero,
-                                       uid,
-                                       imagen,
-                                       intereses
-                                   )
-                               )
-                           }
-
-                           if (preferenciaUsuarioActual == "Mujeres" && genero == "Mujer" && (preferencia=="Mujeres" || preferencia == "No me importa") && generoUsuarioActual=="Mujer") {
-
-                               usuarios.add(
-                                   Usuario(
-                                       nombre,
-                                       edad,
-                                       descripcion,
-                                       preferencia,
-                                       genero,
-                                       uid,
-                                       imagen,
-                                       intereses
-                                   )
-                               )
-                           }
-
-                           if (preferenciaUsuarioActual == "Hombres" && genero == "Hombre" && (preferencia=="Mujeres" || preferencia == "No me importa") && generoUsuarioActual=="Mujer") {
-
-                               usuarios.add(
-                                   Usuario(
-                                       nombre,
-                                       edad,
-                                       descripcion,
-                                       preferencia,
-                                       genero,
-                                       uid,
-                                       imagen,
-                                       intereses
-                                   )
-                               )
-                           }
-
-                           if (preferenciaUsuarioActual == "No me importa" && (preferencia=="Mujeres" || preferencia == "No me importa") && generoUsuarioActual=="Mujer") {
-
-                               usuarios.add(
-                                   Usuario(
-                                       nombre,
-                                       edad,
-                                       descripcion,
-                                       preferencia,
-                                       genero,
-                                       uid,
-                                       imagen,
-                                       intereses
-                                   )
-                               )
-                           }
-
-                           if (preferenciaUsuarioActual == "No me importa" && (preferencia=="Hombres" || preferencia == "No me importa") && generoUsuarioActual=="Hombre") {
-
-                               usuarios.add(
-                                   Usuario(
-                                       nombre,
-                                       edad,
-                                       descripcion,
-                                       preferencia,
-                                       genero,
-                                       uid,
-                                       imagen,
-                                       intereses
-                                   )
-                               )
-                           }
-                       }
-                   }
-=======
                 for (ds in dataSnapshot.children) {
 
                     val uid = ds.child("uid").getValue(String::class.java) ?: ""
@@ -401,7 +281,7 @@ class MenuPrincipal : AppCompatActivity() {
                         }
                     }
                 }
->>>>>>> 3889ea1062d01abd39f95c64713229770d1025e4
+
 
                 val gridLayout = GridLayoutManager(this@MenuPrincipal, 3)
 
