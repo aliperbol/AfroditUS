@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="70dp">
+
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -68,16 +79,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
-    <include
-        android:id="@+id/include"
-        layout="@layout/barra_menu"
-        android:layout_width="414dp"
-        android:layout_height="66dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imagenajena"
-        app:layout_constraintVertical_bias="1.0" />
+
 
     <TextView
         android:id="@+id/textView11"
@@ -96,18 +98,17 @@
 
     <TextView
         android:id="@+id/edadajena"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="35dp"
+        android:layout_height="20dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="36dp"
         android:text="TextView"
         android:textColor="#000000"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/include"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.269"
+        app:layout_constraintHorizontal_bias="0.279"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imagenajena"
-        app:layout_constraintVertical_bias="0.07999998" />
+        app:layout_constraintTop_toBottomOf="@+id/imagenajena" />
 
     <Button
         android:id="@+id/botonchat"
@@ -122,3 +123,13 @@
         app:layout_constraintTop_toBottomOf="@+id/descripcionajena"
         app:layout_constraintVertical_bias="0.375" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+    <include
+        android:id="@+id/include"
+        layout="@layout/barra_menu"
+        android:layout_width="match_parent"
+        android:layout_height="61dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="467dp"
+        tools:layout_editor_absoluteY="467dp" />
+</RelativeLayout>
