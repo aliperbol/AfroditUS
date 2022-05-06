@@ -24,7 +24,17 @@ import kotlin.collections.ArrayList
 
 class MenuPrincipal : AppCompatActivity() {
 
+    /////////////////////////
+    //      VARIABLES      //
+    /////////////////////////
+
     private val auth = Firebase.auth
+
+    //Creamos variables para el filtrado de usuarios
+
+    var edadMinimaFiltro = "0"
+    var edadMaximaFiltro = "99"
+    var interesesFiltro = ArrayList<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,14 +79,13 @@ class MenuPrincipal : AppCompatActivity() {
 
         when(item.itemId){
             R.id.edad -> floatingWindowEdad()
-            R.id.gener -> floatingWindowGenero()
             R.id.inter -> floatingWindowIntereses()
         }
         return super.onOptionsItemSelected(item)
     }
 
 
-    //ventana flotante edad
+    //ventana flotante para el filtro de edad
     fun floatingWindowEdad() {
         //crear ventana
         val builder = AlertDialog.Builder(this)
@@ -86,13 +95,24 @@ class MenuPrincipal : AppCompatActivity() {
         //llamas al layaout
         val dialogLayout = inflater.inflate(R.layout.edad_filtro, null)
 
-        val edMin  = findViewById<EditText>(R.id.edMin)
-        val edMax = findViewById<EditText>(R.id.edMax)
         builder.setView(dialogLayout)
         //acción a realizar tras pultar botón OK, no funcionan los toast :(
-        builder.setPositiveButton("OK") { dialog, which -> Toast.makeText(applicationContext,  "EditText is lalal", Toast.LENGTH_SHORT).show()
+        builder.setPositiveButton("OK") { dialog, which ->
             //dialogInterface, i -> Toast.makeText(applicationContext, "EditText is lalal", Toast.LENGTH_SHORT).show()
+
+            if(dialogLayout.findViewById<EditText>(R.id.edMax)!=null && dialogLayout.findViewById<EditText>(R.id.edMin)!=null){
+                edadMinimaFiltro = dialogLayout.findViewById<EditText>(R.id.edMin).text.toString()
+                edadMaximaFiltro = dialogLayout.findViewById<EditText>(R.id.edMax).text.toString()
+                Toast.makeText(applicationContext,  "edadmin $edadMinimaFiltro edadmax $edadMaximaFiltro", Toast.LENGTH_SHORT).show()
+                mostrar_usuarios()
+            }else{
+                Toast.makeText(applicationContext,  "Los valores son nulos", Toast.LENGTH_LONG).show()
+            }
+
+
+            //mostrar_usuarios() //Recargamos la lista de usuarios
         }
+
         //boton NO
         builder.setNegativeButton(android.R.string.no) { dialog, which ->
             Toast.makeText(applicationContext, android.R.string.no, Toast.LENGTH_SHORT).show()}
@@ -100,40 +120,6 @@ class MenuPrincipal : AppCompatActivity() {
         builder.show()
     }
 
-    //ventana flotante genero
-    fun floatingWindowGenero(){
-        //lista de opciones
-        val items = arrayOf("Hombre", "Mujer")
-        val selectedList = ArrayList<Int>()
-        //crear ventana flotante
-        val builder = AlertDialog.Builder(this)
-        //titulo
-        builder.setTitle("Filtrar por:")
-        //las opciones en formato de multilista
-        builder.setMultiChoiceItems(items, null
-        ) { dialog, which, isChecked ->
-            if (isChecked) {
-                selectedList.add(which)
-            } else if (selectedList.contains(which)) {
-                selectedList.remove(Integer.valueOf(which))
-            }
-        }
-        //botón OK
-        builder.setPositiveButton("OK") { dialogInterface, i ->
-            val selectedStrings = ArrayList<String>()
-
-            for (j in selectedList.indices) {
-                selectedStrings.add(items[selectedList[j]])
-            }
-
-            Toast.makeText(applicationContext, "Items selected are: " + Arrays.toString(selectedStrings.toTypedArray()), Toast.LENGTH_SHORT).show()
-        }
-        //boton NO
-        builder.setNegativeButton(android.R.string.no) { dialog, which -> Toast.makeText(applicationContext, android.R.string.no, Toast.LENGTH_SHORT).show()
-        }
-
-        builder.show()
-    }
 
     //ventana flotante intereses
     fun floatingWindowIntereses(){
@@ -162,7 +148,10 @@ class MenuPrincipal : AppCompatActivity() {
             for (j in selectedList.indices) {
                 selectedStrings.add(items[selectedList[j]])
             }
-            Toast.makeText(applicationContext, "Items selected are: " + Arrays.toString(selectedStrings.toTypedArray()), Toast.LENGTH_SHORT).show()
+
+            //Colocamos los elementos en nuestra lista de filtrado
+            interesesFiltro = ArrayList<String>(selectedStrings)
+            mostrar_usuarios()
         }
         //boton NO
         builder.setNegativeButton(android.R.string.no) { dialog, which -> Toast.makeText(applicationContext, android.R.string.no, Toast.LENGTH_SHORT).show() }
@@ -215,151 +204,184 @@ class MenuPrincipal : AppCompatActivity() {
                             intereses.add(i.getValue().toString())
                         }
 
+                        ///////////////////////////////////
+                        //          FILTRO EDAD          //
+                        ///////////////////////////////////
 
-                        //Filtramos los usuarios que aparecen en funcion de la preferencia sexual
 
-                        if (preferenciaUsuarioActual == "Hombres" && genero == "Hombre" && (preferencia=="Hombres" || preferencia == "No me importa") && generoUsuarioActual=="Hombre") {
-
-                            usuarios.add(
-                                Usuario(
-                                    nombre,
-                                    edad,
-                                    descripcion,
-                                    preferencia,
-                                    genero,
-                                    uid,
-                                    imagen,
-                                    intereses
-                                )
-                            )
+                        if(edadMaximaFiltro=="" || edadMaximaFiltro == null){
+                            edadMaximaFiltro="100"
                         }
-                        if (preferenciaUsuarioActual == "Mujeres" && genero == "Mujer" && (preferencia=="Hombres" || preferencia == "No me importa") && generoUsuarioActual=="Hombre") {
-                            usuarios.add(
-                                Usuario(
-                                    nombre,
-                                    edad,
-                                    descripcion,
-                                    preferencia,
-                                    genero,
-                                    uid,
-                                    imagen,
-                                    intereses
-                                )
-                            )
+                        if(edadMinimaFiltro=="" || edadMinimaFiltro == null){
+                            edadMinimaFiltro = "0"
                         }
+                        if((edad.toInt()>= edadMinimaFiltro.toInt()) && (edad.toInt()<=edadMaximaFiltro.toInt())){
 
-                        if (preferenciaUsuarioActual == "Mujeres" && genero == "Mujer" && (preferencia=="Mujeres" || preferencia == "No me importa") && generoUsuarioActual=="Mujer") {
+                            ////////////////////////////////////////
+                            //          FILTRO INTERESES          //
+                            ////////////////////////////////////////
 
-                            usuarios.add(
-                                Usuario(
-                                    nombre,
-                                    edad,
-                                    descripcion,
-                                    preferencia,
-                                    genero,
-                                    uid,
-                                    imagen,
-                                    intereses
-                                )
-                            )
+                            var algunInteres:Boolean = false
+
+                            if(interesesFiltro.isEmpty()){
+                                algunInteres = true
+                            }
+                            else {
+                                for (interes in intereses) {
+                                    if (interes in interesesFiltro) {
+                                        algunInteres = true
+                                    }
+                                }
+                            }
+
+                            if(algunInteres){
+
+                                /////////////////////////////////////////////////
+                                //          FILTRO PREFERENCIA SEXUAL          //
+                                /////////////////////////////////////////////////
+
+                                if (preferenciaUsuarioActual == "Hombres" && genero == "Hombre" && (preferencia=="Hombres" || preferencia == "No me importa") && generoUsuarioActual=="Hombre") {
+
+                                    usuarios.add(
+                                        Usuario(
+                                            nombre,
+                                            edad,
+                                            descripcion,
+                                            preferencia,
+                                            genero,
+                                            uid,
+                                            imagen,
+                                            intereses
+                                        )
+                                    )
+                                }
+                                if (preferenciaUsuarioActual == "Mujeres" && genero == "Mujer" && (preferencia=="Hombres" || preferencia == "No me importa") && generoUsuarioActual=="Hombre") {
+                                    usuarios.add(
+                                        Usuario(
+                                            nombre,
+                                            edad,
+                                            descripcion,
+                                            preferencia,
+                                            genero,
+                                            uid,
+                                            imagen,
+                                            intereses
+                                        )
+                                    )
+                                }
+
+                                if (preferenciaUsuarioActual == "Mujeres" && genero == "Mujer" && (preferencia=="Mujeres" || preferencia == "No me importa") && generoUsuarioActual=="Mujer") {
+
+                                    usuarios.add(
+                                        Usuario(
+                                            nombre,
+                                            edad,
+                                            descripcion,
+                                            preferencia,
+                                            genero,
+                                            uid,
+                                            imagen,
+                                            intereses
+                                        )
+                                    )
+                                }
+
+                                if (preferenciaUsuarioActual == "Hombres" && genero == "Hombre" && (preferencia=="Mujeres" || preferencia == "No me importa") && generoUsuarioActual=="Mujer") {
+
+                                    usuarios.add(
+                                        Usuario(
+                                            nombre,
+                                            edad,
+                                            descripcion,
+                                            preferencia,
+                                            genero,
+                                            uid,
+                                            imagen,
+                                            intereses
+                                        )
+                                    )
+                                }
+                                if (preferenciaUsuarioActual == "No me importa"  && (preferencia=="Hombres" || preferencia == "No me importa") && generoUsuarioActual=="Hombre") {
+
+                                    usuarios.add(
+                                        Usuario(
+                                            nombre,
+                                            edad,
+                                            descripcion,
+                                            preferencia,
+                                            genero,
+                                            uid,
+                                            imagen,
+                                            intereses
+                                        )
+                                    )
+                                }
+
+                                if (preferenciaUsuarioActual == "No me importa"  && (preferencia=="Mujeres" || preferencia == "No me importa") && generoUsuarioActual=="Mujer") {
+
+                                    usuarios.add(
+                                        Usuario(
+                                            nombre,
+                                            edad,
+                                            descripcion,
+                                            preferencia,
+                                            genero,
+                                            uid,
+                                            imagen,
+                                            intereses
+                                        )
+                                    )
+                                }
+
+                                if (preferenciaUsuarioActual == "No me importa"  && preferencia == "No me importa" && generoUsuarioActual=="Otro") {
+
+                                    usuarios.add(
+                                        Usuario(
+                                            nombre,
+                                            edad,
+                                            descripcion,
+                                            preferencia,
+                                            genero,
+                                            uid,
+                                            imagen,
+                                            intereses
+                                        )
+                                    )
+                                }
+
+                                if (preferenciaUsuarioActual == "Mujeres" && genero == "Mujer"  && preferencia == "No me importa" && generoUsuarioActual=="Otro") {
+
+                                    usuarios.add(
+                                        Usuario(
+                                            nombre,
+                                            edad,
+                                            descripcion,
+                                            preferencia,
+                                            genero,
+                                            uid,
+                                            imagen,
+                                            intereses
+                                        )
+                                    )
+                                }
+
+                                if (preferenciaUsuarioActual == "Hombres" && genero == "Hombre"  && preferencia == "No me importa" && generoUsuarioActual=="Otro") {
+
+                                    usuarios.add(
+                                        Usuario(
+                                            nombre,
+                                            edad,
+                                            descripcion,
+                                            preferencia,
+                                            genero,
+                                            uid,
+                                            imagen,
+                                            intereses
+                                        )
+                                    )
+                                }
+                            }
                         }
-
-                        if (preferenciaUsuarioActual == "Hombres" && genero == "Hombre" && (preferencia=="Mujeres" || preferencia == "No me importa") && generoUsuarioActual=="Mujer") {
-
-                            usuarios.add(
-                                Usuario(
-                                    nombre,
-                                    edad,
-                                    descripcion,
-                                    preferencia,
-                                    genero,
-                                    uid,
-                                    imagen,
-                                    intereses
-                                )
-                            )
-                        }
-                        if (preferenciaUsuarioActual == "No me importa"  && (preferencia=="Hombres" || preferencia == "No me importa") && generoUsuarioActual=="Hombre") {
-
-                            usuarios.add(
-                                Usuario(
-                                    nombre,
-                                    edad,
-                                    descripcion,
-                                    preferencia,
-                                    genero,
-                                    uid,
-                                    imagen,
-                                    intereses
-                                )
-                            )
-                        }
-
-                        if (preferenciaUsuarioActual == "No me importa"  && (preferencia=="Mujeres" || preferencia == "No me importa") && generoUsuarioActual=="Mujer") {
-
-                            usuarios.add(
-                                Usuario(
-                                    nombre,
-                                    edad,
-                                    descripcion,
-                                    preferencia,
-                                    genero,
-                                    uid,
-                                    imagen,
-                                    intereses
-                                )
-                            )
-                        }
-
-                        if (preferenciaUsuarioActual == "No me importa"  && preferencia == "No me importa" && generoUsuarioActual=="Otro") {
-
-                            usuarios.add(
-                                Usuario(
-                                    nombre,
-                                    edad,
-                                    descripcion,
-                                    preferencia,
-                                    genero,
-                                    uid,
-                                    imagen,
-                                    intereses
-                                )
-                            )
-                        }
-
-                        if (preferenciaUsuarioActual == "Mujeres" && genero == "Mujer"  && preferencia == "No me importa" && generoUsuarioActual=="Otro") {
-
-                            usuarios.add(
-                                Usuario(
-                                    nombre,
-                                    edad,
-                                    descripcion,
-                                    preferencia,
-                                    genero,
-                                    uid,
-                                    imagen,
-                                    intereses
-                                )
-                            )
-                        }
-
-                        if (preferenciaUsuarioActual == "Hombres" && genero == "Hombre"  && preferencia == "No me importa" && generoUsuarioActual=="Otro") {
-
-                            usuarios.add(
-                                Usuario(
-                                    nombre,
-                                    edad,
-                                    descripcion,
-                                    preferencia,
-                                    genero,
-                                    uid,
-                                    imagen,
-                                    intereses
-                                )
-                            )
-                        }
-
-
                     }
                 }
 
@@ -396,6 +418,7 @@ class MenuPrincipal : AppCompatActivity() {
         intent.putExtra("genero",usuario.genero)
         intent.putExtra("preferencia",usuario.preferencia)
         intent.putExtra("intereses",usuario.intereses)
+        intent.putExtra("uid", usuario.uid)
         startActivity(intent)
     }
 
