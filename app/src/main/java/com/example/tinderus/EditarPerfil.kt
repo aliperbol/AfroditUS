@@ -5,7 +5,11 @@ import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+
 import android.widget.EditText
+
+import android.widget.Spinner
+
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
@@ -33,6 +37,7 @@ class EditarPerfil: AppCompatActivity() {
             val intent = Intent(this, Perfil_propio::class.java)
             startActivity(intent)
         }
+
 
         fun tomaDatosUsuario(usuario: DatabaseReference){
             // Una vez se implementan los listener en los botones, debemos incluir la imagen y la descripción
@@ -104,6 +109,8 @@ class EditarPerfil: AppCompatActivity() {
         val usuario = FirebaseDatabase.getInstance().getReference("Usuarios").child(auth.currentUser?.uid.toString())
         Log.d("FragmentActivity", "Usuario escogido: $usuario")
         tomaDatosUsuario(usuario)
+
+        val spinnerGenero = findViewById<Spinner>(R.id.seleccionGenero)
 
 
     }
