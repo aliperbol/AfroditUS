@@ -3,6 +3,7 @@ package com.example.tinderus
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
 
 class EditarPerfil: AppCompatActivity() {
@@ -25,7 +26,7 @@ class EditarPerfil: AppCompatActivity() {
             val intent = Intent(this, Perfil_propio::class.java)
             startActivity(intent)
         }
-
+        val spinnerGenero = findViewById<Spinner>(R.id.seleccionGenero)
 
     }
 }
