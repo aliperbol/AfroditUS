@@ -61,7 +61,7 @@ class PerfilAjeno : AppCompatActivity(){
                     if(usuarioEnChat.contains(uidAjeno) && usuarioEnChat.contains(uidPropio) ){
                         val intent = Intent(this, ChatActivity::class.java)
                         intent.putExtra("chatId",chat.id)
-                        intent.putExtra("usuario",uidAjeno)
+                        intent.putExtra("usuario",uidPropio)
                         startActivity(intent)
                         existeChat=true
                     }

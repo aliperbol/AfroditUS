@@ -392,7 +392,14 @@ class MenuPrincipal : AppCompatActivity() {
                 listadoUsuarioRecyclerView.adapter = Perfiles_adapter{
                         usuario -> usuarioSelected(usuario)
                 }
-                (listadoUsuarioRecyclerView.adapter as Perfiles_adapter).setData(usuarios)
+                var usuariosMenu = listOf<Usuario>()
+                if(usuarios.size > 21){
+                    usuariosMenu = usuarios.shuffled().subList(0,21)
+                }
+                else{
+                    usuariosMenu = usuarios.shuffled()
+                }
+                (listadoUsuarioRecyclerView.adapter as Perfiles_adapter).setData(usuariosMenu)
 
 
 
