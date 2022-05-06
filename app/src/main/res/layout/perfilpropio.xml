@@ -150,8 +150,8 @@
 
             <TextView
                 android:id="@+id/generopropio"
-                android:layout_width="35dp"
-                android:layout_height="20dp"
+                android:layout_width="96dp"
+                android:layout_height="19dp"
                 android:layout_marginStart="11dp"
                 android:layout_marginTop="72dp"
                 android:text="TextView"

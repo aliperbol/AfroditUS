@@ -31,6 +31,7 @@ class PerfilAjeno : AppCompatActivity(){
         val nombre = bundle?.getString("nombre") ?: ""
         val descripcion = bundle?.getString("descripcion")?: ""
         val edad= bundle?.getString("edad")?: ""
+        val genero= bundle?.getString("genero")?: ""
         val intereses = bundle?.getStringArrayList("intereses")?: ArrayList()
         val fotoPerfil = bundle?.getString("fotoPerfil")?: ""
         val uidAjeno = bundle?.getString("uid")?: ""
@@ -42,13 +43,14 @@ class PerfilAjeno : AppCompatActivity(){
         val edadVista=findViewById<TextView>(R.id.edadajena)
         val localfile = File.createTempFile("tempImage", "jpg")
         val interesesPerfil = findViewById<TextView>(R.id.interesesajenos)
+        val generoVista=findViewById<TextView>(R.id.generoajeno)
         FirebaseStorage.getInstance().getReferenceFromUrl(fotoPerfil).getFile(localfile).addOnSuccessListener {
             val bitmap = BitmapFactory.decodeFile(localfile.absolutePath)
             fotoPerfilVista.setImageBitmap(bitmap)
         }
         edadVista.text =edad
         descripcionVista.text =descripcion
-
+        generoVista.text=genero
 
         val refUsuarios = db.collection("Usuarios").document(uidPropio)
 

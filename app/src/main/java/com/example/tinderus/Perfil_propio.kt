@@ -29,6 +29,8 @@ class Perfil_propio  : AppCompatActivity() {
     private lateinit var descripcionPerfil:TextView
     private lateinit var interesesPerfil:TextView
     private lateinit var nombrePerfil:TextView
+    private lateinit var edadPerfil:TextView
+    private lateinit var generoPerfil:TextView
 
     /////////////////////
     //    Funciones    //
@@ -42,8 +44,8 @@ class Perfil_propio  : AppCompatActivity() {
         imagenPerfil = findViewById<ImageView>(R.id.imagenajena)
         descripcionPerfil = findViewById<TextView>(R.id.descripcionajena)
         interesesPerfil = findViewById<TextView>(R.id.interesesajenos)
-
-
+        edadPerfil=findViewById<TextView>(R.id.edadpropia)
+        generoPerfil=findViewById<TextView>(R.id.generopropio)
         //Al iniciar la app, estableceremos que los botones de la barra de menu principal tengan
         //un onclick preestablecido
 
@@ -107,7 +109,8 @@ class Perfil_propio  : AppCompatActivity() {
                     var intereses = ArrayList<String>()
                     Log.d("FragmentActivity", "Error: $imagen")
                     title=nombre
-
+                    edadPerfil.text =edad
+                    generoPerfil.text=genero
                     for (i in dataSnapshot.child("intereses").children){
                         intereses.add(i.getValue(String::class.java)?:"")
                     }
