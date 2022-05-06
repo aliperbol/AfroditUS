@@ -6,9 +6,6 @@
         android:id="@+id/edad"
         android:title="Edad" />
     <item
-        android:id="@+id/gener"
-        android:title="Género" />
-    <item
         android:id="@+id/inter"
         android:title="Intereses" />
 </menu>
