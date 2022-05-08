@@ -21,8 +21,10 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class EditarPerfil: AppCompatActivity() {
+
     private val auth = Firebase.auth
     val usuario = FirebaseDatabase.getInstance().getReference("Usuarios").child(auth.currentUser?.uid.toString())
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
