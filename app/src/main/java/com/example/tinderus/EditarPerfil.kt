@@ -1,28 +1,51 @@
 package com.example.tinderus
 
+import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Intent
 import android.graphics.BitmapFactory
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-
-import android.widget.EditText
-
-import android.widget.Spinner
+import android.widget.*
 
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.get
+import androidx.core.view.indices
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import java.io.File
+import java.util.*
+import kotlin.collections.ArrayList
 
 class EditarPerfil: AppCompatActivity() {
     private val auth = Firebase.auth
+    val usuario = FirebaseDatabase.getInstance().getReference("Usuarios").child(auth.currentUser?.uid.toString())
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.editarperfil)
+
+        val descripcionCambio = findViewById<EditText>(R.id.IdDescripcion)
+        val imagenPropia = findViewById<ImageView>(R.id.imagenPropia)
+        val edadPropia = findViewById<EditText>(R.id.edadedita)
+        val generoPropio = findViewById<Spinner>(R.id.seleccionGenero)
+
+
+        val listaGenero = resources.getStringArray(R.array.genero)
+        val adaptadorGenero = ArrayAdapter(this, android.R.layout.simple_spinner_item, listaGenero)
+        generoPropio.adapter = adaptadorGenero
+
+        imagenPropia.setOnClickListener{
+            val intent = Intent(Intent.ACTION_PICK)
+            intent.type = "image/*"
+            startActivityForResult(intent, 0)
+        }
+
 
         val botonIntereses = findViewById<Button>(R.id.editarinteres)
         botonIntereses.setOnClickListener {
@@ -32,8 +55,8 @@ class EditarPerfil: AppCompatActivity() {
 
         val botonGuardar = findViewById<Button>(R.id.guardarcambios)
         botonGuardar.setOnClickListener {
+            subirFotoAFirebase()
 
-            val descripcionCambio = findViewById<EditText>(R.id.IdDescripcion)
             val intent = Intent(this, Perfil_propio::class.java)
             startActivity(intent)
         }
@@ -74,28 +97,20 @@ class EditarPerfil: AppCompatActivity() {
                     val localfile = File.createTempFile("tempImage", "jpj")
                     FirebaseStorage.getInstance().getReferenceFromUrl(imagen).getFile(localfile).addOnSuccessListener {
                         val bitmap = BitmapFactory.decodeFile(localfile.absolutePath)
-                        imagenPerfil.setImageBitmap(bitmap)
+                        imagenPropia.setImageBitmap(bitmap)
                     }
 
                     //Obtenemos la descripción y los gustos del usuario y la incluimos en el perfil
                     //Colocamos la descripción del usuario
-                    descripcionPerfil.text = descripcion
+                    descripcionCambio.setText(descripcion, TextView.BufferType.EDITABLE)
 
-                    //Recorremos sus intereses y los incluimos a modo de texto
+                    edadPropia.setText(edad, TextView.BufferType.EDITABLE)
 
-                    var interesesEnTexto: String = ""
-                    for(interes in intereses){
-                        if (intereses.indexOf(interes) == (intereses.size -1)){
-                            interesesEnTexto += interes
-                        }
-                        else{
-                            interesesEnTexto += interes+ ", "
-                        }
-                    }
-                    interesesPerfil.text = interesesEnTexto
+                    generoPropio.setSelection(getIndex(generoPropio, genero));
 
-                    //Cambiamos el nombre del perfil
-                    //nombrePerfil.text = nombre
+                    //private method of your class
+
+
                 }
 
                 override fun onCancelled(databaseError: DatabaseError) {
@@ -106,12 +121,76 @@ class EditarPerfil: AppCompatActivity() {
             usuario.addListenerForSingleValueEvent(valueEventListener)
         }
 
-        val usuario = FirebaseDatabase.getInstance().getReference("Usuarios").child(auth.currentUser?.uid.toString())
         Log.d("FragmentActivity", "Usuario escogido: $usuario")
         tomaDatosUsuario(usuario)
 
-        val spinnerGenero = findViewById<Spinner>(R.id.seleccionGenero)
+
+    }
+
+    private fun subirFotoAFirebase() {
+
+        if(fotoSeleccionadaURL == null){
+            Toast.makeText(this, "fallo", Toast.LENGTH_SHORT).show()
+        }
+        else {
+
+            val filename = UUID.randomUUID().toString()
+            val ref = FirebaseStorage.getInstance().getReference("/FotoPerfil/$filename")
+            ref.putFile(fotoSeleccionadaURL!!)
+                .addOnSuccessListener {
+
+                    ref.downloadUrl.addOnSuccessListener {
+                        cambiosGuardados(it.toString())
+                    }.addOnFailureListener {
+                        Toast.makeText(this, "No se ha podido subir la imagen", Toast.LENGTH_SHORT).show()
+
+                    }
+                }
+
+        }
+
+    }
+    private fun cambiosGuardados(imagenURL: String) {
+        val edad = findViewById<EditText>(R.id.edadedita).text.toString()
+        val descripcion = findViewById<EditText>(R.id.IdDescripcion).text.toString()
+        val genero: String = findViewById<Spinner>(R.id.seleccionGenero).selectedItem.toString()
 
 
+
+        usuario.child("fotoPerfilURL").setValue(imagenURL)
+        usuario.child("descripcion").setValue(descripcion)
+        usuario.child("edad").setValue(edad)
+        usuario.child("genero").setValue(genero)
+
+
+        val intent = Intent(this, Perfil_propio::class.java)
+        startActivity(intent)
+
+
+
+    }
+
+
+    var fotoSeleccionadaURL: Uri? = null
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(requestCode == 0 && resultCode == Activity.RESULT_OK && data != null){
+            fotoSeleccionadaURL= data.data
+
+            val imagen  = findViewById<ImageView>(R.id.imagenPropia)
+            imagen.setImageURI(fotoSeleccionadaURL)
+        }
+    }
+
+    fun  getIndex(spinner : Spinner, myString : String) : Int{
+        var valor = 0
+        for (i in 0..spinner.count-1){
+
+            if (spinner.getItemAtPosition(i).toString() == myString){
+                valor= i
+
+            }
+        }
+        return valor
     }
 }
