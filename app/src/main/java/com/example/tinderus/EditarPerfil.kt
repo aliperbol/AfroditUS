@@ -55,6 +55,12 @@ class EditarPerfil: AppCompatActivity() {
             startActivity(intent)
         }
 
+        val botonContra = findViewById<Button>(R.id.cambiarcontra)
+        botonContra.setOnClickListener {
+            val intent = Intent(this, Cambiar_contra::class.java)
+            startActivity(intent)
+        }
+
         val botonGuardar = findViewById<Button>(R.id.guardarcambios)
         botonGuardar.setOnClickListener {
             subirFotoAFirebase()
