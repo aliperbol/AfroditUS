@@ -41,19 +41,20 @@
                 app:layout_constraintTop_toBottomOf="@+id/imagenajena"
                 app:layout_constraintVertical_bias="0.0" />
 
+
             <Button
                 android:id="@+id/editarperfil"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="24dp"
                 android:text="Editar perfil"
+                app:cornerRadius="25sp"
                 app:layout_constraintBottom_toTopOf="@+id/cerrarsesion"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/interesesajenos"
                 app:layout_constraintVertical_bias="1.0" />
-
 
             <TextView
                 android:id="@+id/textView10"
@@ -144,6 +145,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Cerrar sesión"
+                app:cornerRadius="25sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
