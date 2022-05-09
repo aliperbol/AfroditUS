@@ -160,6 +160,20 @@ class MenuPrincipal : AppCompatActivity() {
     }
 
 
+
+    private fun usuarioSelected(usuario: Usuario){
+        val intent = Intent(this, PerfilAjeno::class.java)
+        intent.putExtra("nombre",usuario.nombre)
+        intent.putExtra("edad",usuario.edad)
+        intent.putExtra("descripcion",usuario.descripcion)
+        intent.putExtra("fotoPerfil",usuario.fotoPerfil)
+        intent.putExtra("genero",usuario.genero)
+        intent.putExtra("preferencia",usuario.preferencia)
+        intent.putExtra("intereses",usuario.intereses)
+        intent.putExtra("uid", usuario.uid)
+        startActivity(intent)
+    }
+
     private fun mostrar_usuarios(){
         val datos = Firebase.database.getReference("Usuarios")
         val listadoUsuarioRecyclerView =findViewById<RecyclerView>(R.id.imagenesPerfiles)
@@ -415,20 +429,6 @@ class MenuPrincipal : AppCompatActivity() {
         }
         datos.addListenerForSingleValueEvent(valueEventListener)
     }
-
-    private fun usuarioSelected(usuario: Usuario){
-        val intent = Intent(this, PerfilAjeno::class.java)
-        intent.putExtra("nombre",usuario.nombre)
-        intent.putExtra("edad",usuario.edad)
-        intent.putExtra("descripcion",usuario.descripcion)
-        intent.putExtra("fotoPerfil",usuario.fotoPerfil)
-        intent.putExtra("genero",usuario.genero)
-        intent.putExtra("preferencia",usuario.preferencia)
-        intent.putExtra("intereses",usuario.intereses)
-        intent.putExtra("uid", usuario.uid)
-        startActivity(intent)
-    }
-
     private fun messages(){
         val currentUser = auth.currentUser
         //Función que lleva al usuario hasta su lista de chats

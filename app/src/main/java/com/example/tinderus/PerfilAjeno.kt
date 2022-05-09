@@ -146,6 +146,7 @@ class PerfilAjeno : AppCompatActivity(){
         val intent = Intent(this,ChatActivity::class.java)
         intent.putExtra("chatId", chatId)
         intent.putExtra("usuario",uidPropio)
+        intent.putExtra("usuarioReceptor",uidAjeno)
         startActivity(intent)
     }
 }

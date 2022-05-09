@@ -3,6 +3,7 @@ package com.example.tinderus
 import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
@@ -24,8 +25,7 @@ class ListOfChats : AppCompatActivity() {
     /////////////////////
 
     private var usuario = ""
-    private lateinit var botonChatNuevo:View
-    private lateinit var textoChat:TextView
+    private var usuarioreceptor = ""
     private lateinit var listChatsRecyclerView:RecyclerView
     private var db = Firebase.firestore
     private val auth = Firebase.auth
@@ -64,8 +64,6 @@ class ListOfChats : AppCompatActivity() {
         }
 
         //Actualizamos las variables
-        botonChatNuevo = findViewById<Button>(R.id.newChatButton)
-        textoChat = findViewById<TextView>(R.id.newChatText)
         listChatsRecyclerView = findViewById<RecyclerView>(R.id.listChatsRecyclerView)
 
         //Obtenemos el nombre de usuario de la vista anterior
@@ -82,11 +80,6 @@ class ListOfChats : AppCompatActivity() {
     }
 
     private fun initViews(){
-        //Aplicamos un listener al boton de chat nuevo
-        botonChatNuevo.setOnClickListener{
-            //Abrimos un nuevo chat
-            newChat()
-        }
 
         listChatsRecyclerView.layoutManager = LinearLayoutManager(this)
         listChatsRecyclerView.adapter =
@@ -121,36 +114,9 @@ class ListOfChats : AppCompatActivity() {
         val intent = Intent(this, ChatActivity::class.java)
         intent.putExtra("chatId",chat.id)
         intent.putExtra("usuario",usuario)
+        intent.putExtra("usuarioReceptor",chat.nombre)
         startActivity(intent)
     }
 
-    private fun newChat(){
-        //Generamos el uid del chat de manera aleatoria para identificarlo
-        val chatId = UUID.randomUUID().toString()
-
-        //Además debemos tener en cuenta el otro usuario al que va dirigido el chat
-        val usuarioReceptor = textoChat.text.toString()
-
-        //Creamos una lista con los usuarios que intervienen en el chat
-        val usuariosChat = listOf(usuario,usuarioReceptor)
-
-        //Creamos el chat en cuestión
-        val chat = Chat(
-            id = chatId,
-            nombre = "$usuarioReceptor",
-            usuarios = usuariosChat
-        )
-
-        //Ahora debemos incluir este chat en la database del usuario que lo inicia y del que lo recibe
-        db.collection("chats").document(chatId).set(chat)
-        db.collection("Usuarios").document(usuario).collection("chats").document(chatId).set(chat)
-        db.collection("Usuarios").document(usuarioReceptor).collection("chats").document(chatId).set(chat)
-
-        //Enviamos a la siguiente pantalla el usuario y el chatId
-        val intent = Intent(this,ChatActivity::class.java)
-        intent.putExtra("chatId", chatId)
-        intent.putExtra("usuario",usuario)
-        startActivity(intent)
-    }
 
 }
