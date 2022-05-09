@@ -132,7 +132,7 @@ class EditarPerfil: AppCompatActivity() {
     private fun subirFotoAFirebase() {
 
         if(fotoSeleccionadaURL == null){
-            Toast.makeText(this, "fallo", Toast.LENGTH_SHORT).show()
+            cambiosGuardados("no")
         }
         else {
 
@@ -157,9 +157,11 @@ class EditarPerfil: AppCompatActivity() {
         val descripcion = findViewById<EditText>(R.id.IdDescripcion).text.toString()
         val genero: String = findViewById<Spinner>(R.id.seleccionGenero).selectedItem.toString()
 
+        if(imagenURL!="no"){
+            usuario.child("fotoPerfilURL").setValue(imagenURL)
+        }
 
 
-        usuario.child("fotoPerfilURL").setValue(imagenURL)
         usuario.child("descripcion").setValue(descripcion)
         usuario.child("edad").setValue(edad)
         usuario.child("genero").setValue(genero)
