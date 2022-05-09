@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="70dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
     <ImageView
-        android:id="@+id/imagenajena"
+        android:id="@+id/imagenPropia"
         android:layout_width="170dp"
         android:layout_height="200dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -17,24 +27,28 @@
 
 
     <TextView
-        android:id="@+id/nombreajeno"
+        android:id="@+id/edad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ejemplo"
+        android:layout_marginTop="36dp"
+        android:text="Edad:"
         android:textColor="#000000"
         android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.145"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imagenajena" />
+        app:layout_constraintTop_toBottomOf="@+id/imagenPropia"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/IdDescripcion"
-        android:layout_width="255dp"
-        android:layout_height="49dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="13dp"
         android:ems="10"
         android:hint="Descríbete un poco!"
-        android:inputType="textPersonName"
+        android:inputType="textMultiLine"
         android:minHeight="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,35 +69,33 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.214"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nombreajeno"
+        app:layout_constraintTop_toBottomOf="@+id/genero"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/editarinteres"
-        app:cornerRadius="25sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="Editar intereses"
+        app:cornerRadius="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.228"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/IdDescripcion"
-        app:layout_constraintVertical_bias="0.006" />
+        app:layout_constraintVertical_bias="0.017" />
 
     <Button
         android:id="@+id/cambiarcontra"
-        app:cornerRadius="25sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Cambiar contraseña"
+        app:cornerRadius="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.27"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editarinteres"
-        app:layout_constraintVertical_bias="0.176" />
+        app:layout_constraintVertical_bias="0.154" />
 
     <Button
         android:id="@+id/guardarcambios"
@@ -97,4 +109,47 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cambiarcontra"
         app:layout_constraintVertical_bias="0.77" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/genero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Género:"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.151"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edad"
+        app:layout_constraintVertical_bias="0.033" />
+
+    <Spinner
+        android:id="@+id/seleccionGenero"
+        android:layout_width="255dp"
+        android:layout_height="49dp"
+        android:minHeight="48dp"
+        android:spinnerMode="dropdown"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.756"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imagenPropia"
+        app:layout_constraintVertical_bias="0.128" />
+
+    <EditText
+        android:id="@+id/edadedita"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/seleccionGenero"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.224"
+        app:layout_constraintStart_toEndOf="@+id/edad"
+        app:layout_constraintTop_toBottomOf="@+id/imagenPropia" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</RelativeLayout>

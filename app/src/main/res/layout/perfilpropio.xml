@@ -20,12 +20,26 @@
                 android:id="@+id/imagenajena"
                 android:layout_width="170dp"
                 android:layout_height="200dp"
+                android:contentDescription="TODO"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/avatar"
-                android:contentDescription="TODO" />
+                app:srcCompat="@drawable/avatar" />
 
+            <TextView
+                android:id="@+id/edad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36dp"
+                android:text="Edad:"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.145"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imagenajena"
+                app:layout_constraintVertical_bias="0.0" />
 
             <Button
                 android:id="@+id/editarperfil"
@@ -45,13 +59,41 @@
                 android:id="@+id/textView10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="60dp"
                 android:text="Estos son tus intereses:"
                 android:textColor="#000000"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.269"
+                app:layout_constraintHorizontal_bias="0.224"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edad" />
+
+            <TextView
+                android:id="@+id/genero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Género:"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.151"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edad"
+                app:layout_constraintVertical_bias="0.025" />
+
+            <TextView
+                android:id="@+id/edadpropia"
+                android:layout_width="35dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="36dp"
+                android:text="TextView"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.053"
+                app:layout_constraintStart_toEndOf="@+id/edad"
                 app:layout_constraintTop_toBottomOf="@+id/imagenajena" />
 
             <TextView
@@ -64,21 +106,21 @@
                 android:textSize="16sp"
                 app:layout_constraintBottom_toTopOf="@+id/editarperfil"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.201"
+                app:layout_constraintHorizontal_bias="0.167"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/interesesajenos"
-                app:layout_constraintVertical_bias="0.006" />
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/interesesajenos"
                 android:layout_width="277dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="12dp"
                 android:text="TextView"
                 android:textColor="#000000"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.485"
+                app:layout_constraintHorizontal_bias="0.402"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
@@ -92,10 +134,10 @@
                 android:textSize="16sp"
                 app:layout_constraintBottom_toTopOf="@+id/editarperfil"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.485"
+                app:layout_constraintHorizontal_bias="0.402"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView14"
-                app:layout_constraintVertical_bias="0.119" />
+                app:layout_constraintVertical_bias="1.0" />
 
             <Button
                 android:id="@+id/cerrarsesion"
@@ -106,7 +148,19 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
-
+            <TextView
+                android:id="@+id/generopropio"
+                android:layout_width="96dp"
+                android:layout_height="19dp"
+                android:layout_marginStart="11dp"
+                android:layout_marginTop="72dp"
+                android:text="TextView"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.003"
+                app:layout_constraintStart_toEndOf="@+id/genero"
+                app:layout_constraintTop_toBottomOf="@+id/imagenajena" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

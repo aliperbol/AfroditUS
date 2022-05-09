@@ -1,5 +1,6 @@
 package com.example.tinderus
 
+import android.content.Intent
 import android.graphics.BitmapFactory
 import android.util.Log
 import android.view.LayoutInflater
@@ -45,7 +46,9 @@ class ChatAdapter(val chatClick: (Chat) -> Unit): RecyclerView.Adapter<ChatAdapt
                 false
             )
         )
+
     }
+    var usuarioreceptor=""
 
     override fun onBindViewHolder(holder: ChatViewHolder, position:Int){
 
@@ -59,6 +62,7 @@ class ChatAdapter(val chatClick: (Chat) -> Unit): RecyclerView.Adapter<ChatAdapt
             holder.itemView.setOnClickListener {
                 chatClick(chats[position])
             }
+
         }
         else{
             mostrar_usuarios(chats[position].usuarios[1], holder)
@@ -69,7 +73,6 @@ class ChatAdapter(val chatClick: (Chat) -> Unit): RecyclerView.Adapter<ChatAdapt
             }
         }
 
-
     }
 
     override fun getItemCount():Int{
@@ -78,7 +81,7 @@ class ChatAdapter(val chatClick: (Chat) -> Unit): RecyclerView.Adapter<ChatAdapt
 
     class ChatViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)
 
-    private fun mostrar_usuarios( uidChat : String, holder: ChatViewHolder){
+    private fun mostrar_usuarios( uidChat : String, holder: ChatViewHolder) {
         val datos = Firebase.database.getReference("Usuarios")
         var usuario = mutableListOf<String>()
         val valueEventListener: ValueEventListener = object : ValueEventListener {
@@ -93,7 +96,6 @@ class ChatAdapter(val chatClick: (Chat) -> Unit): RecyclerView.Adapter<ChatAdapt
                         val imagen = ds.child("fotoPerfilURL").getValue(String::class.java) ?: ""
                         usuario.add(nombre)
                         usuario.add(imagen)
-                        Log.d("FragmentActivity", "nombre $nombre")
 
                         holder.itemView.findViewById<TextView>(R.id.chatNameText).text = nombre
 
