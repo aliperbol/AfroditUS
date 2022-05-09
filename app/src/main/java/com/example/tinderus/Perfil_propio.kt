@@ -114,10 +114,7 @@ class Perfil_propio  : AppCompatActivity() {
                     for (i in dataSnapshot.child("intereses").children){
                         intereses.add(i.getValue(String::class.java)?:"")
                     }
-
-
                     //De esta forma conseguimos accedemos a nuestro recycledView para mostrar usuarios como grid
-
 
                     //Obtenemos la imagen de storage de firebase y la ponemos en el perfil del usuario
 
