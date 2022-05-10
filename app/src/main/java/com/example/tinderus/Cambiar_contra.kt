@@ -22,21 +22,28 @@ class Cambiar_contra : AppCompatActivity()  {
 
             val contra = findViewById<EditText>(R.id.nuevaContra).text.toString()
             val contra2 = findViewById<EditText>(R.id.nuevaContra2).text.toString()
+            if(contra.isEmpty()){
+                Toast.makeText(this, "Campo vacío, por favor introduzca la nueva contraseña ", Toast.LENGTH_SHORT).show()
 
-            if (contra == contra2){
-                val user = auth.currentUser
 
-                user!!.updatePassword(contra).addOnSuccessListener{
-                    Toast.makeText(this, "Contraseña actualizada", Toast.LENGTH_SHORT).show()
-
-                }
-                val intent = Intent(this, EditarPerfil::class.java)
-                startActivity(intent)
             }
             else{
-                Toast.makeText(this, "Las contraseñas no coinciden, intentelo de nuevo", Toast.LENGTH_SHORT).show()
+                if (contra == contra2 ) {
+                    val user = auth.currentUser
 
+                    user!!.updatePassword(contra).addOnSuccessListener{
+                        Toast.makeText(this, "Contraseña actualizada", Toast.LENGTH_SHORT).show()
+
+                    }
+                    val intent = Intent(this, EditarPerfil::class.java)
+                    startActivity(intent)
+                }
+                else{
+                    Toast.makeText(this, "Las contraseñas no coinciden, intentelo de nuevo", Toast.LENGTH_SHORT).show()
+
+                }
             }
+
 
         }
 

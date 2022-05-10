@@ -5,7 +5,7 @@ import kotlin.collections.ArrayList
 
 data class Usuario (
     var nombre: String = "",
-    var edad: String = "s",
+    var edad: String = "",
     var descripcion: String = "",
     var preferencia: String = "",
     var genero: String = "",

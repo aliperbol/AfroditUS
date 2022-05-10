@@ -163,7 +163,6 @@ class Intereses : AppCompatActivity(){
 
             //En la base de datos, añadiremos los usuarios como nuevos nodos que cuelgan del principal "Usuarios"
             ref.child("Usuarios").child(uid).setValue(us).addOnSuccessListener {
-                Toast.makeText(this, "se ha subido el usuario", Toast.LENGTH_SHORT).show()
             }
         }
 

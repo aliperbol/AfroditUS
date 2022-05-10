@@ -71,7 +71,7 @@ class Primer_perfil:AppCompatActivity() {
     private fun subirFotoAFirebase() {
 
         if(fotoSeleccionadaURL == null){
-            Toast.makeText(this, "fallo", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Fallo", Toast.LENGTH_SHORT).show()
         }
         else {
 
@@ -102,7 +102,7 @@ class Primer_perfil:AppCompatActivity() {
 
             val intent = Intent(this, Intereses::class.java).apply {
                 if(!fechaNacimiento.matches(getPattern().toRegex())){
-                    Toast.makeText(this@Primer_perfil, "Formato de fecha erróneo", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@Primer_perfil, "Formato de edad erróneo", Toast.LENGTH_SHORT).show()
                 }else{
                     putExtra("urlImagen", imagenURL)
                     putExtra("fecha", fechaNacimiento)

@@ -280,19 +280,6 @@ android:layout_height="match_parent">
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintVertical_bias="0.324" />
 
-    <TextView
-        android:id="@+id/min"
-        android:layout_width="403dp"
-        android:layout_height="23dp"
-        android:text="Señale mínimo 3 opciones"
-        android:textAlignment="center"
-        android:textColor="#F9FBE7"
-        app:layout_constraintBottom_toTopOf="@+id/cultural"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/intereses"
-        app:layout_constraintVertical_bias="0.232" />
-
     <Button
     android:id="@+id/boton_atras"
     android:layout_width="wrap_content"

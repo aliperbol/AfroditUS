@@ -103,7 +103,8 @@ class MenuPrincipal : AppCompatActivity() {
             if(dialogLayout.findViewById<EditText>(R.id.edMax)!=null && dialogLayout.findViewById<EditText>(R.id.edMin)!=null){
                 edadMinimaFiltro = dialogLayout.findViewById<EditText>(R.id.edMin).text.toString()
                 edadMaximaFiltro = dialogLayout.findViewById<EditText>(R.id.edMax).text.toString()
-                Toast.makeText(applicationContext,  "edadmin $edadMinimaFiltro edadmax $edadMaximaFiltro", Toast.LENGTH_SHORT).show()
+
+
                 mostrar_usuarios()
             }else{
                 Toast.makeText(applicationContext,  "Los valores son nulos", Toast.LENGTH_LONG).show()
