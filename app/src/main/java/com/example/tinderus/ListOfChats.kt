@@ -114,7 +114,14 @@ class ListOfChats : AppCompatActivity() {
         val intent = Intent(this, ChatActivity::class.java)
         intent.putExtra("chatId",chat.id)
         intent.putExtra("usuario",usuario)
-        intent.putExtra("usuarioReceptor",chat.nombre)
+        var usuarioAuth = auth.currentUser?.uid.toString()
+        if(chat.nombre == usuario){
+            intent.putExtra("usuarioReceptor",chat.usuarios[0])
+        }
+        else{
+            intent.putExtra("usuarioReceptor",chat.usuarios[1])
+        }
+        //intent.putExtra("usuarioReceptor",chat.nombre)
         startActivity(intent)
     }
 

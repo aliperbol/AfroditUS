@@ -47,7 +47,12 @@ class ChatActivity: AppCompatActivity() {
         intent.getStringExtra("chatId")?.let{chatId = it}
         intent.getStringExtra("usuario")?.let{usuario = it}
         intent.getStringExtra("usuarioReceptor")?.let{usuarioreceptor = it}
+        Log.d("Fragment", "usuario que soy yo ${usuarioreceptor}")
+        var usuarioAuth = auth.currentUser?.uid.toString()
+        Log.d("Fragment", "true ${usuarioAuth}")
         mostrar_usuarios(usuarioreceptor)
+
+        //mostrar_usuarios(usuarioreceptor)
         //Tomamos el nombre de usuario del registro
         //Inicializamos las variables
         botonEnviarMensaje = findViewById<Button>(R.id.sendMessageButton)
